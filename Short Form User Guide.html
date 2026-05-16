@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Guide · NGS Capacity Assessment Short Form · APHL Global Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+:root {
+  --teal:       #00A0AF;
+  --teal-mid:   #006E79;
+  --teal-dark:  #005057;
+  --teal-light: #A3CCCC;
+  --teal-bg:    #EBF5F6;
+  --rust:       #B42E34;
+  --rust-light: #F3D1D2;
+  --rust-dark:  #862226;
+  --gray-dark:  #404040;
+  --gray-mid:   #8A8A8A;
+  --gray-light: #E2E9EC;
+  --font:       'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: var(--font);
+  color: var(--gray-dark);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+  background: #bbb;
+  padding: 32px 0 64px;
+}
+
+/* ── PAGES ──────────────────────────────────────────── */
+.page {
+  width: 8.5in;
+  min-height: 11in;
+  background: #fff;
+  margin: 0 auto 32px;
+  padding: 0.48in 0.65in 0.45in;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.stripe { height: 5px; background: var(--rust); margin: 0 -0.65in; }
+
+.page-header {
+  background: var(--teal-dark);
+  color: #fff;
+  margin: 0 -0.65in;
+  padding: 18px 0.65in;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: center;
+}
+.page-header .eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 4px; }
+.page-header h1 { font-size: 20px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 4px; color: #fff; }
+.page-header .sub { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.75); margin: 0; line-height: 1.4; }
+.page-header .meta { text-align: right; font-size: 10px; color: var(--teal-light); line-height: 1.9; }
+.page-header .meta strong { color: #fff; font-weight: 600; }
+
+.pg-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--gray-light);
+  font-size: 9px; color: var(--gray-mid);
+  display: flex; justify-content: space-between;
+}
+
+/* ── SECTION HEADERS ────────────────────────────────── */
+.section-header { display: flex; align-items: center; gap: 12px; margin: 16px 0 12px; }
+.step-num { width: 28px; height: 28px; background: var(--rust); color: #fff; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-header h2 { font-size: 15px; font-weight: 700; color: var(--teal-dark); margin: 0; letter-spacing: -0.01em; }
+
+/* ── DOWNLOAD STEP ───────────────────────────────────── */
+.dl-box {
+  border: 2px solid var(--teal-mid);
+  background: var(--teal-bg);
+  padding: 20px 22px;
+  margin-bottom: 14px;
+}
+.dl-box .dl-title {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--teal-dark); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.dl-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.dl-steps li { display: flex; gap: 12px; align-items: flex-start; }
+.dl-num {
+  width: 24px; height: 24px; flex-shrink: 0;
+  background: var(--teal-mid); color: #fff;
+  font-weight: 800; font-size: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+.dl-steps li .dl-text { font-size: 13.5px; line-height: 1.5; padding-top: 3px; }
+.dl-steps li .dl-text strong { color: var(--teal-dark); }
+.dl-steps li .dl-text code { font-family: 'Courier New', monospace; font-size: 12px; background: rgba(0,0,0,0.07); padding: 1px 5px; color: var(--teal-dark); border-radius: 2px; }
+
+.dl-file {
+  background: #fff;
+  border: 1px solid var(--teal-mid);
+  padding: 10px 14px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+.dl-file .dl-icon { font-size: 22px; flex-shrink: 0; }
+.dl-file .dl-name { font-weight: 700; color: var(--teal-dark); font-size: 13px; display: block; }
+.dl-file .dl-desc { color: var(--gray-mid); font-size: 11px; }
+
+.dl-url-box {
+  background: #fff;
+  border: 1px solid var(--teal-mid);
+  padding: 10px 14px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+.dl-url-box .dl-icon { font-size: 22px; flex-shrink: 0; }
+.dl-url-box .dl-url { font-weight: 700; color: var(--teal-dark); word-break: break-all; font-family: 'Courier New', monospace; font-size: 12px; }
+.dl-url-box .dl-desc { color: var(--gray-mid); font-size: 11px; }
+
+.warn-box {
+  background: #fdf6f6;
+  border-left: 4px solid var(--rust);
+  padding: 10px 13px;
+  margin: 10px 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.warn-box h4 { font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 4px; color: var(--rust-dark); }
+
+/* ── CALLOUT BOX ─────────────────────────────────────── */
+.cbox { background: var(--teal-bg); border-left: 4px solid var(--teal-mid); padding: 9px 13px; margin: 8px 0; font-size: 12px; }
+.cbox.rust { background: #fdf6f6; border-left-color: var(--rust); }
+.cbox h4 { font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 3px; color: var(--teal-dark); }
+.cbox.rust h4 { color: var(--rust-dark); }
+.cbox p { margin: 0; line-height: 1.5; }
+
+/* ── CALLOUT BADGE ─────────────────────────────────── */
+.cb { display: inline-flex; align-items: center; justify-content: center; width: 19px; height: 19px; border-radius: 50%; background: var(--rust); color: #fff; font-size: 10px; font-weight: 800; flex-shrink: 0; vertical-align: middle; }
+.cb.teal { background: var(--teal-mid); }
+
+.ann { position: absolute; width: 19px; height: 19px; border-radius: 50%; background: var(--rust); color: #fff; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.3); z-index: 3; }
+.ann.teal { background: var(--teal-mid); }
+
+/* ── MOCK UI ──────────────────────────────────────────── */
+.mock-wrap { border: 1px solid var(--gray-light); margin-bottom: 10px; position: relative; }
+.m-topbar { background: #fff; border-bottom: 1px solid var(--gray-light); display: flex; align-items: center; gap: 10px; padding: 6px 12px; }
+.m-logo { height: 17px; width: 42px; background: var(--teal-mid); display: flex; align-items: center; justify-content: center; font-size: 7.5px; color: #fff; font-weight: 700; letter-spacing: 0.08em; }
+.m-brand { font-size: 8px; font-weight: 700; color: var(--teal-mid); text-transform: uppercase; letter-spacing: 0.07em; border-left: 2px solid var(--rust); padding-left: 8px; }
+.m-spacer { flex: 1; }
+.m-btn { font-size: 8px; font-weight: 700; padding: 3px 7px; border: 1px solid var(--teal-mid); color: var(--teal-mid); background: #fff; }
+.m-btn.pri { background: var(--teal-mid); color: #fff; }
+.m-hero { background: linear-gradient(100deg, rgba(0,110,121,0.93) 0%, rgba(0,110,121,0.7) 100%); color: #fff; padding: 12px 14px 14px; position: relative; display: grid; grid-template-columns: 1.3fr 0.8fr; gap: 12px; align-items: end; }
+.m-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--rust); }
+.m-eyebrow { font-size: 7.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 3px; font-weight: 700; }
+.m-title { font-size: 12px; font-weight: 800; line-height: 1.1; margin: 0 0 4px; }
+.m-sub { font-size: 8px; opacity: 0.82; line-height: 1.4; margin: 0; font-weight: 300; }
+.m-metabox { background: rgba(0,0,0,0.22); border-left: 3px solid var(--rust); padding: 7px 9px; }
+.m-metabox dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 3px 9px; font-size: 7px; }
+.m-metabox dt { font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--teal-light); font-size: 6.5px; }
+.m-metabox dd { margin: 0; color: #fff; }
+.m-app { display: grid; grid-template-columns: 100px 1fr; gap: 7px; align-items: start; }
+.m-rail { background: #fff; border: 1px solid var(--gray-light); padding: 8px; font-size: 8px; position: relative; }
+.m-rail .rt { font-size: 7.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-mid); margin-bottom: 4px; }
+.m-pb { height: 4px; background: var(--gray-light); margin-bottom: 7px; position: relative; }
+.m-pb::after { content:""; position:absolute; inset:0 auto 0 0; width:35%; background: var(--teal); }
+.m-ri { display: flex; align-items: center; gap: 4px; padding: 3px 2px; font-size: 8px; }
+.m-ri.act { color: var(--teal-dark); background: rgba(0,110,121,0.06); box-shadow: inset 2px 0 0 var(--teal-mid); padding-left: 4px; }
+.m-dot { width: 7px; height: 7px; border: 1.5px solid var(--gray-mid); flex-shrink: 0; }
+.m-dot.done { background: var(--teal-mid); border-color: var(--teal-mid); }
+.m-dot.half { background: var(--teal-light); border-color: var(--teal-mid); }
+.m-sec { background: #fff; border: 1px solid var(--gray-light); position: relative; }
+.m-sec-head { display: flex; align-items: center; gap: 7px; padding: 6px 10px; border-bottom: 2px solid var(--teal-mid); background: linear-gradient(90deg, rgba(0,110,121,0.04) 0%, transparent 60%); }
+.m-sec-num { font-size: 8.5px; font-weight: 700; background: var(--rust-light); color: var(--rust); padding: 2px 6px; }
+.m-sec-title { font-size: 9px; font-weight: 700; color: var(--teal-mid); }
+.m-sec-body { padding: 7px 10px; }
+.m-sub-head { font-size: 7.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gray-dark); border-bottom: 1px solid var(--gray-light); padding-bottom: 3px; margin-bottom: 4px; display: flex; justify-content: space-between; }
+.m-sub-head .ref { color: var(--rust); margin-right: 3px; }
+.m-yn-row { display: flex; align-items: center; justify-content: space-between; padding: 4px 7px; font-size: 8px; border: 1px solid var(--gray-light); border-top: none; }
+.m-yn-row:first-child { border-top: 1px solid var(--gray-light); }
+.m-yn-row.ans { background: rgba(0,110,121,0.03); }
+.m-choices { display: flex; gap: 2px; }
+.m-btn-yn { font-size: 7.5px; font-weight: 700; padding: 2px 5px; border: 1px solid var(--gray-light); color: var(--gray-mid); background: #fff; }
+.m-btn-yn.sel { background: var(--teal-mid); color: #fff; border-color: var(--teal-mid); }
+.m-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px 5px; margin-bottom: 5px; }
+.m-opt { display: flex; align-items: center; gap: 4px; font-size: 8px; padding: 3px 4px; border: 1px solid transparent; }
+.m-opt.chk { background: rgba(0,110,121,0.07); border-color: rgba(0,110,121,0.2); }
+.m-chkbox { width: 8px; height: 8px; border: 1.5px solid var(--gray-mid); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 6.5px; }
+.m-chkbox.chk { border-color: var(--teal-mid); background: var(--teal-mid); color: #fff; }
+.m-field { margin-bottom: 5px; }
+.m-fl { font-size: 7.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
+.m-input { width: 100%; height: 18px; border: 1px solid var(--gray-light); background: #fff; display: flex; align-items: center; padding: 0 4px; font-size: 8px; color: var(--gray-mid); }
+.m-pri { border-left: 3px solid var(--rust); background: #fdf6f6; padding: 5px 7px; margin-bottom: 4px; }
+.m-pri-lbl { font-size: 7px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--rust-dark); margin-bottom: 2px; }
+.m-pri-inp { width: 100%; height: 24px; border: 1px solid rgba(180,46,52,0.15); background: #fff; display: flex; align-items: flex-start; padding: 3px 4px; font-size: 7.5px; color: var(--gray-mid); }
+.m-table { width: 100%; border-collapse: collapse; font-size: 7.5px; margin-bottom: 5px; }
+.m-table th { background: var(--teal-mid); color: #fff; padding: 3px 6px; text-align: left; font-size: 7px; text-transform: uppercase; letter-spacing: 0.06em; }
+.m-table th.c { text-align: center; width: 48px; }
+.m-table td { padding: 3px 6px; border-bottom: 1px solid var(--gray-light); font-size: 7.5px; }
+.m-table td.c { text-align: center; }
+.m-table td.tick { background: var(--teal-mid); color: #fff; text-align: center; font-size: 8px; }
+.m-table tbody tr:nth-child(even) td { background: #fbfcfc; }
+
+/* ── CALLOUT LIST ─────────────────────────────────────── */
+.cl { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.cl li { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; line-height: 1.45; }
+.cl li strong { color: var(--teal-dark); font-weight: 700; }
+
+/* ── TWO-COL ──────────────────────────────────────────── */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 10px; }
+.two.wl { grid-template-columns: 1.3fr 1fr; }
+.col-head { font-size: 10px; font-weight: 700; color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 7px; }
+.dbox { border: 1px solid var(--gray-light); padding: 10px; margin-bottom: 7px; background: #fff; }
+
+/* ── STEPS LIST ──────────────────────────────────────── */
+.slist { list-style: none; margin: 0; padding: 0; counter-reset: s; display: flex; flex-direction: column; gap: 7px; }
+.slist li { display: flex; gap: 9px; align-items: flex-start; counter-increment: s; }
+.slist li::before { content: counter(s); width: 20px; height: 20px; flex-shrink: 0; background: var(--teal-mid); color: #fff; font-weight: 800; font-size: 10px; display: flex; align-items: center; justify-content: center; }
+.slist li .st { font-size: 12px; line-height: 1.45; padding-top: 1px; }
+.slist li .st strong { color: var(--teal-dark); }
+.slist li .st code { font-family: 'Courier New', monospace; font-size: 11px; background: var(--gray-light); padding: 1px 4px; color: var(--teal-dark); }
+
+/* ── EXPORT FLOW ─────────────────────────────────────── */
+.xflow { display: flex; align-items: stretch; gap: 0; margin: 8px 0 12px; }
+.xstep { background: #fff; border: 1px solid var(--gray-light); padding: 11px 12px; flex: 1; font-size: 11px; }
+.xstep .xi { font-size: 17px; display: block; margin-bottom: 4px; color: var(--teal-mid); }
+.xstep .xl { font-weight: 700; color: var(--teal-dark); display: block; margin-bottom: 2px; font-size: 12px; }
+.xstep .xd { color: var(--gray-mid); font-size: 10px; line-height: 1.4; }
+.xarr { color: var(--gray-mid); font-size: 15px; display: flex; align-items: center; padding: 0 3px; flex-shrink: 0; }
+.xstep.hi { background: var(--teal-mid); border-color: var(--teal-dark); }
+.xstep.hi .xl { color: #fff; }
+.xstep.hi .xd { color: var(--teal-light); }
+.xstep.hi .xi { color: #fff; }
+
+/* ── EMAIL CTA ───────────────────────────────────────── */
+.ecta { background: var(--teal-dark); color: #fff; padding: 16px 18px; display: flex; align-items: center; gap: 14px; margin-top: 12px; }
+.ecta .eicon { width: 38px; height: 38px; background: var(--rust); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.ecta h3 { font-size: 13px; font-weight: 700; margin: 0 0 2px; color: #fff; }
+.ecta p { font-size: 11px; color: var(--teal-light); margin: 0; }
+.ecta a { color: #fff; font-weight: 700; }
+
+/* ── SECTION TABLE ───────────────────────────────────── */
+.sec-table { border: 1px solid var(--gray-light); font-size: 12px; }
+.sec-row { display: grid; grid-template-columns: 36px 1fr; border-bottom: 1px solid var(--gray-light); }
+.sec-row:last-child { border-bottom: none; }
+.sec-row .sn { background: var(--rust-light); color: var(--rust); font-weight: 700; font-size: 9.5px; display: flex; align-items: center; justify-content: center; padding: 6px 3px; }
+.sec-row .sc { padding: 6px 10px; line-height: 1.4; }
+.sec-row.hi .sn { background: var(--rust); color: #fff; }
+.sec-row.hi .sc { background: #fdf6f6; }
+
+/* ── PRINT ────────────────────────────────────────────── */
+@page { size: letter portrait; margin: 0; }
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+  body { background: #fff; padding: 0; margin: 0; }
+  #tweaks-root { display: none !important; }
+  .page {
+    width: 8.5in; height: 11in; min-height: unset;
+    margin: 0; padding: 0.45in 0.6in 0.4in;
+    break-after: page; page-break-after: always;
+    overflow: hidden; display: flex; flex-direction: column;
+  }
+  .page:last-child { break-after: auto; page-break-after: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ PAGE 1 — Download & Setup ══════════════ -->
+<div class="page">
+  <div class="stripe"></div>
+  <header class="page-header">
+    <div>
+      <div class="eyebrow">APHL Global Health · MADE Initiative</div>
+      <h1>Quick Start Guide — NGS Capacity Assessment</h1>
+      <p class="sub">Everything you need to complete the short form and share your results — in under 5 minutes to read.</p>
+    </div>
+    <div class="meta">
+      <div><strong>Form</strong><br>Short Form v1 · 2026</div>
+      <div style="margin-top:7px;"><strong>Time to complete</strong><br>~30 minutes</div>
+      <div style="margin-top:7px;"><strong>Questions?</strong><br><span data-tweak="contactEmail">peera.hemarajata@tha.aphl.org</span></div>
+    </div>
+  </header>
+
+  <div class="section-header">
+    <div class="step-num">1</div>
+    <h2>Download and save the form</h2>
+  </div>
+
+  <div class="dl-box">
+    <div class="dl-title">
+      <span style="font-size:18px;">📥</span>
+      Before anything else — get the file onto your computer
+    </div>
+
+    <!-- STANDALONE FILE MODE -->
+    <div id="dl-mode-file">
+      <ol class="dl-steps">
+        <li>
+          <div class="dl-num">1</div>
+          <div class="dl-text">Download this file and <strong>save it somewhere you will not forget</strong> — your Desktop or a dedicated Documents folder works well.</div>
+        </li>
+        <li>
+          <div class="dl-num">2</div>
+          <div class="dl-text">
+            <div class="dl-file">
+              <div class="dl-icon">🗂</div>
+              <div>
+                <span class="dl-name">NGS Assessment Short Form (standalone).html</span>
+                <span class="dl-desc">Standalone HTML file — no internet connection required to fill it out</span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="dl-num">3</div>
+          <div class="dl-text"><strong>Open it by double-clicking</strong> the saved file. It will open in your web browser. Chrome or Edge is recommended.</div>
+        </li>
+        <li>
+          <div class="dl-num">4</div>
+          <div class="dl-text">Fill in the form, then use <strong>Review &amp; Export</strong> or <strong>Print / PDF</strong> at the top to submit your responses (see pages 4–5).</div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- WEB URL MODE (hidden by default) -->
+    <div id="dl-mode-url" style="display:none;">
+      <ol class="dl-steps">
+        <li>
+          <div class="dl-num">1</div>
+          <div class="dl-text"><strong>Open this link</strong> in your web browser. Chrome or Edge is recommended. Bookmark it so you can return easily.</div>
+        </li>
+        <li>
+          <div class="dl-num">2</div>
+          <div class="dl-text">
+            <div class="dl-url-box">
+              <div class="dl-icon">🔗</div>
+              <div>
+                <div class="dl-url" data-tweak="formUrl">[Form URL will appear here — set it in the Tweaks panel]</div>
+                <div class="dl-desc">Open in the same browser each time to preserve your responses</div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="dl-num">3</div>
+          <div class="dl-text">Fill in the form, then use <strong>Review &amp; Export</strong> or <strong>Print / PDF</strong> at the top to submit your responses (see pages 4–5).</div>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <h4>⚠ Always use the same browser and device</h4>
+    <p>Your answers are saved automatically in your browser's local storage. If you switch browsers, use a private/incognito window, or open a different copy of the file, you will start with an empty form. Complete everything on one device, in one browser, using the same file or URL each time.</p>
+  </div>
+
+  <div class="pg-footer">
+    <span>Pathogen Genomics Capacity Assessment — Short Form v1 · APHL Global Health · MADE Initiative</span>
+    <span>Page 1 of 5</span>
+  </div>
+</div>
+
+
+<!-- ══════════ PAGE 2 — Layout Overview ══════════════ -->
+<div class="page">
+
+  <div class="section-header">
+    <div class="step-num">2</div>
+    <h2>Getting oriented — the page layout</h2>
+  </div>
+
+  <div class="mock-wrap" style="position:relative;">
+    <div class="m-topbar">
+      <!-- Real APHL logo: lighthouse icon + text -->
+      <div style="display:flex;align-items:center;gap:4px;">
+        <svg width="28" height="28" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" fill="#006E79" rx="4"/>
+          <polygon points="60,12 72,40 88,40 75,57 80,80 60,67 40,80 45,57 32,40 48,40" fill="#00A0AF" opacity="0.9"/>
+          <rect x="54" y="80" width="12" height="28" fill="#A3CCCC"/>
+          <rect x="46" y="104" width="28" height="4" fill="#A3CCCC"/>
+        </svg>
+        <div style="display:flex;flex-direction:column;line-height:1;">
+          <span style="font-size:9px;font-weight:800;color:var(--teal-mid);letter-spacing:0.06em;">APHL</span>
+          <span style="font-size:6px;color:var(--gray-mid);letter-spacing:0.04em;">PUBLIC HEALTH LABS</span>
+        </div>
+      </div>
+      <div style="width:1px;height:22px;background:var(--gray-light);margin:0 4px;"></div>
+      <div class="m-brand">Global Health · NGS Capacity Assessment</div>
+      <div class="m-spacer"></div>
+      <div style="display:flex;gap:4px;">
+        <div class="m-btn">Clear all</div>
+        <div class="m-btn">Print / PDF</div>
+        <div class="m-btn pri">Review &amp; Export</div>
+      </div>
+      <div class="ann" style="top:-9px;left:2px;">A</div>
+      <div class="ann teal" style="top:-9px;right:136px;">B</div>
+      <div class="ann" style="top:-9px;right:2px;">C</div>
+    </div>
+    <div class="m-hero" style="margin-bottom:8px;">
+      <div>
+        <div class="m-eyebrow">Pre-engagement Scoping · Short Form</div>
+        <div class="m-title">Pathogen Genomics Capacity Assessment</div>
+        <div class="m-sub">A 30-minute snapshot of your laboratory's current capacity and priorities, so the APHL team arrives prepared.</div>
+      </div>
+      <!-- Meta box styled to match real form: pill labels -->
+      <div class="m-metabox">
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:7.5px;">
+          <div style="display:flex;align-items:baseline;gap:5px;"><span style="font-size:6px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal-light);">For</span><span style="color:#fff;">APHL partner laboratories</span></div>
+          <div style="display:flex;align-items:baseline;gap:5px;"><span style="font-size:6px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal-light);">Version</span><span style="color:#fff;">Short Form v1 · 2026</span></div>
+          <div style="display:flex;align-items:baseline;gap:5px;"><span style="font-size:6px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal-light);">Time</span><span style="color:#fff;">~30 minutes</span></div>
+          <div style="display:flex;align-items:baseline;gap:5px;"><span style="font-size:6px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal-light);">Saves</span><span style="color:#fff;">Automatically in your browser</span></div>
+        </div>
+      </div>
+      <div class="ann" style="top:3px;left:3px;">D</div>
+      <div class="ann teal" style="top:3px;right:3px;">E</div>
+    </div>
+    <div class="m-app" style="padding:0 0 5px;">
+      <div class="m-rail">
+        <div class="ann" style="top:-9px;left:-9px;">F</div>
+        <div class="rt">Progress</div>
+        <div class="m-pb"></div>
+        <div style="font-size:7.5px;color:var(--gray-mid);margin-bottom:5px;font-weight:600;">35% complete</div>
+        <div class="m-ri"><div class="m-dot done"></div><span>01 Lab identification</span></div>
+        <div class="m-ri act"><div class="m-dot half"></div><span>02 Scope</span></div>
+        <div class="m-ri"><div class="m-dot"></div><span>03 Instruments</span></div>
+        <div class="m-ri"><div class="m-dot"></div><span>04 Workforce</span></div>
+        <div class="m-ri"><div class="m-dot"></div><span>05 Bioinformatics</span></div>
+        <div class="m-ri"><div class="m-dot"></div><span>06 Quality &amp; data</span></div>
+        <div class="m-ri"><div class="m-dot"></div><span>07 Priorities</span></div>
+        <div class="m-ri"><div class="m-dot"></div><span>08 Open notes</span></div>
+      </div>
+      <div class="m-sec">
+        <div class="ann" style="top:-9px;left:-9px;">G</div>
+        <div class="m-sec-head">
+          <div class="m-sec-num">02</div>
+          <div class="m-sec-title">Current &amp; Planned Sequencing Scope</div>
+        </div>
+        <div class="m-sec-body">
+          <div class="m-sub-head"><span><span class="ref">2.1</span>What do you currently do in-house?</span></div>
+          <div class="m-yn-row ans">
+            <span>Short-read NGS (Illumina, Element, MGI)</span>
+            <div class="m-choices"><div class="m-btn-yn sel">Routinely</div><div class="m-btn-yn">Occasionally</div><div class="m-btn-yn">No</div></div>
+          </div>
+          <div class="m-yn-row">
+            <span>Long-read sequencing (Nanopore, PacBio)</span>
+            <div class="m-choices"><div class="m-btn-yn">Routinely</div><div class="m-btn-yn">Occasionally</div><div class="m-btn-yn sel">No</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="cl">
+    <li><span class="cb">A</span><div><strong>APHL logo &amp; title bar</strong> — fixed at top as you scroll.</div></li>
+    <li><span class="cb teal">B</span><div><strong>Print / PDF</strong> — opens your browser's print dialog to save a formatted copy at any time.</div></li>
+    <li><span class="cb">C</span><div><strong>Three action buttons:</strong> <strong>Clear all</strong> resets every field (use with caution) · <strong>Print / PDF</strong> saves a formatted copy · <strong>Review &amp; Export</strong> generates a plain-text summary to copy or download.</div></li>
+    <li><span class="cb">D</span><div><strong>Cover / hero section</strong> — shows form title and type. Becomes the first page when printed.</div></li>
+    <li><span class="cb teal">E</span><div><strong>Metadata box</strong> — confirms version, time, and that responses save automatically. <strong>No login required.</strong></div></li>
+    <li><span class="cb">F</span><div><strong>Progress rail</strong> — tracks completion per section. Click any name to jump to it. <span style="display:inline-block;width:8px;height:8px;background:var(--teal-mid);vertical-align:middle;margin:0 2px;"></span>= complete &nbsp;<span style="display:inline-block;width:8px;height:8px;background:var(--teal-light);vertical-align:middle;margin:0 2px;border:1px solid var(--teal-mid);"></span>= in progress &nbsp;<span style="display:inline-block;width:8px;height:8px;border:1.5px solid var(--gray-mid);vertical-align:middle;margin:0 2px;"></span>= not started.</div></li>
+    <li><span class="cb teal">G</span><div><strong>Form sections</strong> — eight sections (01–08). Work through in order or jump freely. Each section has a colored number badge and title.</div></li>
+  </ul>
+
+  <div class="pg-footer">
+    <span>Pathogen Genomics Capacity Assessment — Short Form v1 · APHL Global Health · MADE Initiative</span>
+    <span>Page 2 of 5</span>
+  </div>
+</div>
+
+
+<!-- ══════════ PAGE 3 — Question Types ═══════════════ -->
+<div class="page">
+
+  <div class="section-header">
+    <div class="step-num">3</div>
+    <h2>Question types you'll encounter</h2>
+  </div>
+
+  <div class="two">
+    <div>
+      <div class="col-head">Status / frequency rows</div>
+      <div class="dbox">
+        <div class="m-sub-head" style="margin-bottom:5px;"><span>What do you currently do in-house?</span></div>
+        <div class="m-yn-row ans"><span>Short-read NGS (Illumina, Element, MGI)</span><div class="m-choices"><div class="m-btn-yn sel">Routinely</div><div class="m-btn-yn">Occasionally</div><div class="m-btn-yn">No</div></div></div>
+        <div class="m-yn-row"><span>Long-read sequencing (Nanopore, PacBio)</span><div class="m-choices"><div class="m-btn-yn">Routinely</div><div class="m-btn-yn">Occasionally</div><div class="m-btn-yn sel">No</div></div></div>
+        <div class="m-yn-row ans" style="border-bottom:none;"><span>Backup generator for sequencing runs?</span><div class="m-choices"><div class="m-btn-yn sel">Yes</div><div class="m-btn-yn">No</div><div class="m-btn-yn">Unsure / NA</div></div></div>
+      </div>
+      <p style="font-size:12px;margin:0;">Click one button per row. The row highlights when answered.</p>
+    </div>
+    <div>
+      <div class="col-head">"Select all that apply" lists</div>
+      <div class="dbox">
+        <div class="m-sub-head" style="margin-bottom:5px;"><span><span class="ref">3.1</span>Illumina platforms</span><span style="font-weight:400;text-transform:none;color:var(--gray-mid);font-size:7.5px;">select all</span></div>
+        <div class="m-opts">
+          <div class="m-opt chk"><div class="m-chkbox chk">✓</div>MiSeq (classic)</div>
+          <div class="m-opt chk"><div class="m-chkbox chk">✓</div>NextSeq 2000</div>
+          <div class="m-opt"><div class="m-chkbox"></div>NovaSeq 6000</div>
+          <div class="m-opt"><div class="m-chkbox"></div>iSeq 100</div>
+          <div class="m-opt"><div class="m-chkbox"></div>MiniSeq</div>
+          <div class="m-opt"><div class="m-chkbox"></div>NovaSeq X</div>
+        </div>
+      </div>
+      <p style="font-size:12px;margin:0;">Check all that apply. Highlighted rows confirm your selection.</p>
+    </div>
+    <div>
+      <div class="col-head">Text &amp; number fields</div>
+      <div class="dbox">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:5px;">
+          <div class="m-field"><div class="m-fl">Country</div><div class="m-input">Philippines</div></div>
+          <div class="m-field"><div class="m-fl">Laboratory name</div><div class="m-input">RITM</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;">
+          <div class="m-field"><div class="m-fl">Samples (12 mo)</div><div class="m-input">240</div></div>
+          <div class="m-field"><div class="m-fl">Runs (12 mo)</div><div class="m-input">12</div></div>
+          <div class="m-field"><div class="m-fl">Target (next yr)</div><div class="m-input">400</div></div>
+        </div>
+      </div>
+      <p style="font-size:12px;margin:0;">Type directly. Best estimates are fine — you can revise anytime.</p>
+    </div>
+    <div>
+      <div class="col-head">Priority &amp; open text fields</div>
+      <div class="dbox">
+        <div class="m-pri"><div class="m-pri-lbl">Priority 1</div><div class="m-pri-inp">Expand TB WGS for routine drug resistance typing…</div></div>
+        <div class="m-pri"><div class="m-pri-lbl">Priority 2</div><div class="m-pri-inp">Build in-house bioinformatics capacity for…</div></div>
+      </div>
+      <p style="font-size:12px;margin:0;"><strong>Section 7 priorities are the most important part.</strong> Be specific — these directly shape the engagement plan.</p>
+    </div>
+  </div>
+
+  <div class="col-head" style="margin-bottom:5px;">Application status grid (Section 2)</div>
+  <div class="dbox" style="padding:8px;">
+    <div class="m-sub-head" style="margin-bottom:4px;"><span><span class="ref">2.2</span>Applications: mark each one's status</span></div>
+    <table class="m-table">
+      <thead><tr><th>Application</th><th class="c">Active</th><th class="c">Piloting</th><th class="c">Planned</th><th class="c">Not planned</th></tr></thead>
+      <tbody>
+        <tr><td>Viral WGS (SARS-CoV-2, influenza, measles…)</td><td class="tick c">✓</td><td class="c"></td><td class="c"></td><td class="c"></td></tr>
+        <tr><td>Bacterial WGS for outbreak surveillance</td><td class="c"></td><td class="c"></td><td class="tick c">✓</td><td class="c"></td></tr>
+        <tr><td>Tuberculosis targeted NGS or WGS</td><td class="c"></td><td class="tick c">✓</td><td class="c"></td><td class="c"></td></tr>
+        <tr><td>Human genetics or newborn screening</td><td class="c"></td><td class="c"></td><td class="c"></td><td class="tick c">✓</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px;color:var(--gray-mid);margin:0;">This grid determines which in-depth modules appear in the full baseline assessment.</p>
+  </div>
+
+  <div class="cbox">
+    <h4>💾 Auto-save — nothing to do</h4>
+    <p>Responses save automatically as you type. Return on the same device/browser and all answers will still be there. <strong>No login required.</strong></p>
+  </div>
+
+  <div class="pg-footer">
+    <span>Pathogen Genomics Capacity Assessment — Short Form v1 · APHL Global Health · MADE Initiative</span>
+    <span>Page 3 of 5</span>
+  </div>
+</div>
+
+
+<!-- ══════════ PAGE 4 — Export & Share ═══════════════ -->
+<div class="page">
+
+  <div class="section-header">
+    <div class="step-num">4</div>
+    <h2>Exporting and sharing your responses</h2>
+  </div>
+
+  <p style="font-size:13px;margin:0 0 10px;">When done, export using one of two options from the toolbar at the top of the form page:</p>
+
+  <div class="xflow">
+    <div class="xstep"><span class="xi">📋</span><span class="xl">Click "Review &amp; Export"</span><span class="xd">Top-right button in the navigation bar</span></div>
+    <div class="xarr">→</div>
+    <div class="xstep"><span class="xi">📄</span><span class="xl">A text summary appears</span><span class="xd">All your answers in plain text — review before sending</span></div>
+    <div class="xarr">→</div>
+    <div class="xstep hi"><span class="xi">📧</span><span class="xl">Download &amp; email to APHL</span><span class="xd">Save the .txt file and attach to your email</span></div>
+  </div>
+
+  <div class="two" style="margin-top:2px;">
+    <div>
+      <div class="col-head">Option A — Text export <span style="color:var(--teal);font-size:9px;">(recommended)</span></div>
+      <ol class="slist">
+        <li><div class="st">Click <strong>Review &amp; Export</strong> in the top-right of the page.</div></li>
+        <li><div class="st">Review the text summary. Click <strong>Download .txt</strong> to save the file.</div></li>
+        <li><div class="st">Attach the file to an email and send to:<br><code data-tweak="contactEmail">peera.hemarajata@tha.aphl.org</code></div></li>
+      </ol>
+    </div>
+    <div>
+      <div class="col-head">Option B — Print to PDF</div>
+      <ol class="slist">
+        <li><div class="st">Click <strong>Print / PDF</strong> in the top-right of the page.</div></li>
+        <li><div class="st">Set destination to <strong>Save as PDF</strong>.</div></li>
+        <li><div class="st">Enable <strong>"Background graphics"</strong> in More settings.</div></li>
+        <li><div class="st">Save and email to:<br><code data-tweak="contactEmail">peera.hemarajata@tha.aphl.org</code></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="cbox rust" style="margin-bottom:10px;">
+    <h4>⚠ Important — use the same browser and device</h4>
+    <p>Responses are stored locally in your browser. Switching browsers or devices means answers will not transfer. Use the same browser and file/URL each time you return.</p>
+  </div>
+
+  <div style="border:1px solid var(--gray-light);padding:14px 16px;background:#fff;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;">
+    <div style="font-size:28px;">📨</div>
+    <div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal-dark);margin-bottom:4px;">Send your completed assessment to</div>
+      <div style="font-size:14px;font-weight:700;" data-tweak="contactEmail">peera.hemarajata@tha.aphl.org</div>
+      <div style="font-size:11.5px;color:var(--gray-mid);margin-top:2px;">Peera Hemarajata, M.D., Ph.D. · APHL Global Health · MADE Initiative</div>
+      <div id="deadline-line" style="font-size:11.5px;color:var(--rust-dark);font-weight:600;margin-top:3px;">Please send by: <span data-tweak="deadline">Friday, May 16</span></div>
+    </div>
+  </div>
+
+  <div class="pg-footer">
+    <span>Pathogen Genomics Capacity Assessment — Short Form v1 · APHL Global Health · MADE Initiative</span>
+    <span>Page 4 of 5</span>
+  </div>
+</div>
+
+
+<!-- ══════════ PAGE 5 — Tips & Reference ═════════════ -->
+<div class="page">
+
+  <div class="section-header">
+    <div class="step-num">5</div>
+    <h2>Tips for a useful response</h2>
+  </div>
+
+  <div class="two wl">
+    <div>
+      <ul class="cl" style="gap:10px;margin-bottom:12px;">
+        <li><span class="cb teal">✓</span><div><strong>Section 7 (Priorities) matters most.</strong> A one-sentence answer is not enough. Describe the gap, urgency, and what success looks like from your perspective.</div></li>
+        <li><span class="cb teal">✓</span><div><strong>Best estimates beat blank fields.</strong> An order-of-magnitude guess ("~200 samples/year") is more useful than leaving it empty. Mark N/A only if truly not applicable.</div></li>
+        <li><span class="cb teal">✓</span><div><strong>Multiple people can contribute.</strong> Share the file with relevant staff but have everyone work on the <em>same device</em> in the <em>same browser</em> to preserve all responses.</div></li>
+        <li><span class="cb teal">✓</span><div><strong>Who to involve by section:</strong> Lab director for Sections 1, 2, 7 · Wet-lab staff for Sections 3 &amp; 4 · Bioinformatician for Section 5 · Quality officer for Section 6.</div></li>
+        <li><span class="cb teal">✓</span><div><strong>Section 2 (Scope) drives the full baseline.</strong> Mark everything you're doing, piloting, or seriously planning — even if early-stage.</div></li>
+      </ul>
+    </div>
+    <div>
+      <div class="col-head" style="margin-bottom:7px;">The 8 sections at a glance</div>
+      <div class="sec-table">
+        <div class="sec-row"><div class="sn">01</div><div class="sc"><strong>Laboratory Identification</strong><br>Name, type, location, mandate, partnerships</div></div>
+        <div class="sec-row"><div class="sn">02</div><div class="sc"><strong>Sequencing Scope</strong><br>What you do now, what you plan to do</div></div>
+        <div class="sec-row"><div class="sn">03</div><div class="sc"><strong>Instrumentation</strong><br>Sequencers on-site, utilisation, readiness</div></div>
+        <div class="sec-row"><div class="sn">04</div><div class="sc"><strong>Workforce</strong><br>Roles filled, training history, sustainability</div></div>
+        <div class="sec-row"><div class="sn">05</div><div class="sc"><strong>Bioinformatics &amp; Compute</strong><br>Hardware, pipelines, internet speed</div></div>
+        <div class="sec-row"><div class="sn">06</div><div class="sc"><strong>Quality, Data &amp; Governance</strong><br>Accreditation, EQA, data-sharing policies</div></div>
+        <div class="sec-row hi"><div class="sn">07</div><div class="sc"><strong>Priorities &amp; Readiness ← most important</strong><br>Your top asks, modalities, timing, constraints</div></div>
+        <div class="sec-row"><div class="sn">08</div><div class="sc"><strong>Open Notes</strong><br>Anything else we should know</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ecta">
+    <div class="eicon">✉</div>
+    <div>
+      <h3>Send your completed assessment to:</h3>
+      <p><a href="#" data-tweak="contactEmail">peera.hemarajata@tha.aphl.org</a> &nbsp;·&nbsp; Peera Hemarajata, M.D., Ph.D. &nbsp;·&nbsp; APHL Global Health</p>
+    </div>
+  </div>
+
+  <div class="pg-footer">
+    <span>Pathogen Genomics Capacity Assessment — Short Form v1 · APHL Global Health · MADE Initiative</span>
+    <span>Page 5 of 5</span>
+  </div>
+</div>
+
+<!-- Tweaks mount point -->
+<div id="tweaks-root"></div>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accessMethod": "Standalone file",
+  "formUrl": "",
+  "contactEmail": "peera.hemarajata@tha.aphl.org",
+  "deadline": "Friday, May 16",
+  "orgName": "RITM"
+}/*EDITMODE-END*/;
+
+function applyTweaks(t) {
+  // Update all [data-tweak="contactEmail"] elements
+  document.querySelectorAll('[data-tweak="contactEmail"]').forEach(el => {
+    el.textContent = t.contactEmail;
+    if (el.tagName === 'A') el.href = 'mailto:' + t.contactEmail;
+  });
+  // Update deadline
+  document.querySelectorAll('[data-tweak="deadline"]').forEach(el => {
+    el.textContent = t.deadline;
+  });
+  // Update form URL
+  document.querySelectorAll('[data-tweak="formUrl"]').forEach(el => {
+    el.textContent = t.formUrl || '[Form URL — set in Tweaks panel]';
+  });
+  // Toggle access method
+  const fileMode = document.getElementById('dl-mode-file');
+  const urlMode = document.getElementById('dl-mode-url');
+  if (fileMode && urlMode) {
+    if (t.accessMethod === 'Web URL') {
+      fileMode.style.display = 'none';
+      urlMode.style.display = 'block';
+    } else {
+      fileMode.style.display = 'block';
+      urlMode.style.display = 'none';
+    }
+  }
+}
+
+function TweaksApp() {
+  const { TweaksPanel, TweakSection, TweakRadio, TweakText, useTweaks } = window;
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  React.useEffect(() => { applyTweaks(t); }, [t]);
+
+  return (
+    <TweaksPanel>
+      <TweakSection label="Form Access">
+        <TweakRadio
+          label="Access method"
+          value={t.accessMethod}
+          options={['Standalone file', 'Web URL']}
+          onChange={v => setTweak('accessMethod', v)}
+        />
+        {t.accessMethod === 'Web URL' && (
+          <TweakText
+            label="Form URL"
+            value={t.formUrl}
+            placeholder="https://..."
+            onChange={v => setTweak('formUrl', v)}
+          />
+        )}
+      </TweakSection>
+      <TweakSection label="Submission">
+        <TweakText
+          label="Contact email"
+          value={t.contactEmail}
+          onChange={v => setTweak('contactEmail', v)}
+        />
+        <TweakText
+          label="Submission deadline"
+          value={t.deadline}
+          placeholder="e.g. Friday, May 16"
+          onChange={v => setTweak('deadline', v)}
+        />
+      </TweakSection>
+      <TweakSection label="Organization">
+        <TweakText
+          label="Org name"
+          value={t.orgName}
+          placeholder="e.g. RITM"
+          onChange={v => setTweak('orgName', v)}
+        />
+      </TweakSection>
+    </TweaksPanel>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('tweaks-root'));
+root.render(<TweaksApp />);
+
+// Apply defaults on load
+applyTweaks(TWEAK_DEFAULTS);
+</script>
+
+</body>
+</html>

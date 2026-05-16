@@ -1,0 +1,2969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pathogen Genomics Capacity Assessment — Full Baseline — APHL Global Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   APHL Design System — Full Baseline Assessment
+   Based on short form design, scaled for comprehensive forms
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* APHL Primary Colors */
+  --aphl-teal:          #00A0AF;
+  --aphl-teal-light:    #A3CCCC;
+  --aphl-teal-medium:   #006E79;
+  --aphl-teal-dark:     #005057;
+  --aphl-rust:          #B42E34;
+  --aphl-rust-light:    #F3D1D2;
+  --aphl-rust-dark:     #862226;
+  
+  /* Secondary/Program Colors */
+  --aphl-green:         #68BD49;
+  --aphl-orange:        #E37C1D;
+  --aphl-yellow:        #EBAB21;
+  --aphl-purple:        #9960A7;
+  --aphl-purple-dark:   #532E63;
+  
+  /* Neutrals */
+  --aphl-gray-dark:     #404040;
+  --aphl-gray-mid:      #8A8A8A;
+  --aphl-gray-light:    #E2E9EC;
+  --aphl-white:         #FFFFFF;
+  
+  /* Typography */
+  --font-heading: 'Libre Franklin', 'Franklin Gothic Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'Libre Franklin', 'Franklin Gothic Book', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { 
+  background: #f2f4f5; 
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--aphl-gray-dark);
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TOP BAR
+   ═══════════════════════════════════════════════════════════ */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid var(--aphl-gray-light);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 28px;
+}
+
+.topbar img.logo { 
+  height: 34px; 
+}
+
+.topbar .brand-text {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--aphl-teal-medium);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-left: 2px solid var(--aphl-rust);
+  padding-left: 14px;
+}
+
+.topbar .spacer { 
+  flex: 1; 
+}
+
+.topbar .actions { 
+  display: flex; 
+  gap: 8px; 
+}
+
+.topbar button {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: 1px solid var(--aphl-teal-medium);
+  background: #fff;
+  color: var(--aphl-teal-medium);
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.15s;
+}
+
+.topbar button.primary {
+  background: var(--aphl-teal-medium);
+  color: #fff;
+  border-color: var(--aphl-teal-medium);
+}
+
+.topbar button:hover {
+  background: var(--aphl-teal-dark);
+  color: #fff;
+  border-color: var(--aphl-teal-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════════ */
+.hero {
+  background:
+    linear-gradient(100deg, rgba(0,110,121,0.92) 0%, rgba(0,110,121,0.75) 55%, rgba(0,80,87,0.25) 100%),
+    url('assets/photo-lab-microscope.png');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--aphl-rust);
+}
+
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 56px 28px 72px 28px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: end;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--aphl-teal-light);
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin: 0 0 14px 0;
+  text-wrap: balance;
+}
+
+.hero-sub {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.88);
+  max-width: 520px;
+  margin: 0;
+}
+
+.hero-meta {
+  background: rgba(0,0,0,0.18);
+  backdrop-filter: blur(2px);
+  padding: 22px 24px;
+  border-left: 4px solid var(--aphl-rust);
+}
+
+.hero-meta dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  font-size: 13px;
+}
+
+.hero-meta dt {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--aphl-teal-light);
+  font-size: 11px;
+}
+
+.hero-meta dd {
+  margin: 0;
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MAIN LAYOUT
+   ═══════════════════════════════════════════════════════════ */
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 28px 120px 28px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INTRO CARD
+   ═══════════════════════════════════════════════════════════ */
+.intro-card {
+  background: #fff;
+  border: 1px solid var(--aphl-gray-light);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.intro-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--aphl-teal);
+}
+
+.intro-card h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--aphl-teal-medium);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.01em;
+}
+
+.intro-card p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.intro-card p:last-child {
+  margin-bottom: 0;
+}
+
+.intro-card .emph {
+  color: var(--aphl-rust-dark);
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION CARD
+   ═══════════════════════════════════════════════════════════ */
+.section {
+  background: #fff;
+  border: 1px solid var(--aphl-gray-light);
+  margin-bottom: 20px;
+  page-break-inside: avoid;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 28px;
+  border-bottom: 2px solid var(--aphl-teal-medium);
+  background: linear-gradient(90deg, rgba(0,110,121,0.04) 0%, transparent 60%);
+}
+
+.section-num {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: var(--aphl-rust);
+  background: var(--aphl-rust-light);
+  padding: 6px 14px;
+  min-width: 48px;
+  text-align: center;
+}
+
+.section-head h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--aphl-teal-medium);
+  letter-spacing: -0.015em;
+  margin: 0;
+  flex: 1;
+}
+
+.section-body {
+  padding: 24px 28px 32px 28px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SUBSECTION HEADERS
+   ═══════════════════════════════════════════════════════════ */
+h3.sub {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--aphl-gray-dark);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 28px 0 12px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--aphl-gray-light);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h3.sub:first-child {
+  margin-top: 0;
+}
+
+h3.sub .ref {
+  color: var(--aphl-rust);
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+h3.sub .muted {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--aphl-gray-mid);
+  font-size: 12px;
+}
+
+h4.sub-minor {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--aphl-teal-medium);
+  margin: 16px 0 8px 0;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--aphl-gray-mid);
+  font-style: italic;
+  margin: 4px 0 14px 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FORM FIELDS
+   ═══════════════════════════════════════════════════════════ */
+.field {
+  margin: 10px 0;
+}
+
+.field > label,
+.field-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--aphl-gray-dark);
+  margin-bottom: 5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field input[type="email"],
+.field input[type="date"],
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--aphl-gray-light);
+  background: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--aphl-gray-dark);
+  border-radius: 0;
+  transition: border-color 0.12s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--aphl-teal-medium);
+  box-shadow: 0 0 0 2px rgba(0,110,121,0.15);
+}
+
+.field textarea {
+  min-height: 72px;
+  resize: vertical;
+}
+
+.row {
+  display: grid;
+  gap: 14px 18px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.row-3 {
+  display: grid;
+  gap: 14px 18px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.row-4 {
+  display: grid;
+  gap: 14px 18px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   OPTION LISTS (checkboxes, radios)
+   ═══════════════════════════════════════════════════════════ */
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 16px;
+  margin: 6px 0 12px 0;
+}
+
+.options.one-col {
+  grid-template-columns: 1fr;
+}
+
+.options label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  padding: 7px 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.1s;
+}
+
+.options label:hover {
+  background: rgba(0,160,175,0.05);
+}
+
+.options label:has(input:checked) {
+  background: rgba(0,110,121,0.08);
+  border-color: rgba(0,110,121,0.25);
+}
+
+.options input {
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--aphl-teal-medium);
+}
+
+.options label input[type="text"] {
+  border: 0;
+  border-bottom: 1px solid var(--aphl-gray-mid);
+  padding: 0 2px;
+  font-size: 13px;
+  flex: 1;
+  min-width: 80px;
+  background: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   YES/NO ROWS
+   ═══════════════════════════════════════════════════════════ */
+.yn-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 11px 14px;
+  border: 1px solid var(--aphl-gray-light);
+  border-top: none;
+  background: #fff;
+}
+
+.yn-row:first-child {
+  border-top: 1px solid var(--aphl-gray-light);
+}
+
+.yn-row:has(input:checked) {
+  background: rgba(0,110,121,0.03);
+}
+
+.yn-row .question {
+  font-size: 14px;
+  color: var(--aphl-gray-dark);
+}
+
+.yn-choices {
+  display: flex;
+  gap: 4px;
+}
+
+.yn-choices label {
+  font-size: 12px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 6px 12px;
+  border: 1px solid var(--aphl-gray-light);
+  cursor: pointer;
+  color: var(--aphl-gray-mid);
+  background: #fff;
+  transition: all 0.1s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.yn-choices label:hover {
+  border-color: var(--aphl-teal-medium);
+  color: var(--aphl-teal-medium);
+}
+
+.yn-choices label:has(input:checked) {
+  background: var(--aphl-teal-medium);
+  color: #fff;
+  border-color: var(--aphl-teal-medium);
+}
+
+.yn-choices input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TABLES
+   ═══════════════════════════════════════════════════════════ */
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 16px 0;
+  font-size: 13px;
+}
+
+table.data th,
+table.data td {
+  text-align: left;
+  padding: 9px 12px;
+  vertical-align: middle;
+  border: 1px solid var(--aphl-gray-light);
+}
+
+table.data thead th {
+  background: var(--aphl-teal-medium);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+}
+
+table.data thead th.status {
+  text-align: center;
+  width: 90px;
+}
+
+table.data td.status {
+  text-align: center;
+  padding: 0;
+}
+
+table.data td.status label {
+  display: block;
+  padding: 9px 4px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+table.data td.status label:hover {
+  background: rgba(0,160,175,0.06);
+}
+
+table.data td.status label:has(input:checked) {
+  background: var(--aphl-teal-medium);
+}
+
+table.data td.status label:has(input:checked)::after {
+  content: "✓";
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+table.data td.status input {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+table.data tbody tr:nth-child(even) {
+  background: #fbfcfc;
+}
+
+table.data td input[type="text"],
+table.data td input[type="number"] {
+  width: 100%;
+  border: 1px solid transparent;
+  padding: 6px 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  background: transparent;
+}
+
+table.data td input:focus {
+  border-color: var(--aphl-teal-medium);
+  background: #fff;
+  outline: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MODULE CARDS (Section G)
+   ═══════════════════════════════════════════════════════════ */
+.module {
+  border: 2px solid var(--aphl-orange);
+  margin: 20px 0;
+  background: #fff;
+  page-break-inside: avoid;
+}
+
+.module.inactive {
+  display: none;
+}
+
+.module-head {
+  background: rgba(227,124,29,0.1);
+  border-bottom: 1px solid var(--aphl-orange);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.module-head h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--aphl-teal-medium);
+  margin: 0;
+  flex: 1;
+}
+
+.module-badge {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  background: var(--aphl-orange);
+  color: #fff;
+}
+
+.module-body {
+  padding: 20px 24px 24px 24px;
+}
+
+.module-note {
+  background: rgba(227,124,29,0.08);
+  border-left: 3px solid var(--aphl-orange);
+  padding: 10px 14px;
+  margin: 0 0 16px 0;
+  font-size: 13px;
+  color: var(--aphl-gray-dark);
+}
+
+.modules-inactive-banner {
+  background: #FFF8E5;
+  border: 1px solid #E8A100;
+  padding: 14px 18px;
+  border-radius: 0;
+  margin: 16px 0;
+  font-size: 13px;
+  color: #5A4200;
+}
+
+.modules-inactive-banner strong {
+  color: #5A4200;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   REVIEW PANEL (MODAL)
+   ═══════════════════════════════════════════════════════════ */
+.review-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,80,87,0.65);
+  z-index: 200;
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+
+.review-panel.show {
+  display: block;
+}
+
+.review-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 36px 40px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  border-top: 4px solid var(--aphl-rust);
+}
+
+.review-card h2 {
+  font-family: var(--font-heading);
+  color: var(--aphl-teal-medium);
+  margin: 0 0 14px 0;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.review-card textarea {
+  width: 100%;
+  min-height: 420px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  padding: 14px;
+  border: 1px solid var(--aphl-gray-light);
+  background: #f9fbfb;
+}
+
+.review-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.review-actions button {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 12px;
+  padding: 10px 18px;
+  border-radius: 0;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.review-actions .sec {
+  background: #fff;
+  color: var(--aphl-teal-medium);
+  border: 1px solid var(--aphl-teal-medium);
+}
+
+.review-actions .pri {
+  background: var(--aphl-teal-medium);
+  color: #fff;
+  border: 1px solid var(--aphl-teal-medium);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TOAST
+   ═══════════════════════════════════════════════════════════ */
+.toast {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  background: var(--aphl-teal-dark);
+  color: #fff;
+  font-size: 12px;
+  padding: 8px 14px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 100;
+  letter-spacing: 0.02em;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--aphl-gray-mid);
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--aphl-gray-light);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 720px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 40px 24px 48px;
+  }
+  
+  .hero-title {
+    font-size: 34px;
+  }
+  
+  .row,
+  .row-3,
+  .row-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .options {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PRINT STYLES
+   ═══════════════════════════════════════════════════════════ */
+@page {
+  size: Letter;
+  margin: 0.55in;
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  html {
+    background: #fff;
+  }
+  
+  .topbar,
+  .toast,
+  .review-panel {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 10pt;
+  }
+  
+  .wrap {
+    max-width: none;
+    padding: 0;
+  }
+  
+  .hero {
+    page-break-after: always;
+    break-after: page;
+  }
+  
+  .hero-inner {
+    padding: 48px 40px;
+  }
+  
+  .hero-title {
+    font-size: 32pt;
+  }
+  
+  .intro-card {
+    margin: 0 0 18px 0;
+    border: 1px solid var(--aphl-gray-light);
+  }
+  
+  .section {
+    page-break-inside: avoid;
+    break-inside: avoid-page;
+    page-break-before: always;
+    break-before: page;
+    margin-bottom: 0;
+  }
+  
+  .section:first-of-type {
+    page-break-before: auto;
+    break-before: auto;
+  }
+  
+  .module {
+    page-break-inside: avoid;
+    break-inside: avoid-page;
+  }
+  
+  .module.inactive {
+    display: none !important;
+  }
+  
+  h3.sub,
+  h4.sub-minor,
+  table.data,
+  .yn-row,
+  .field {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  h3.sub,
+  h4.sub-minor {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  
+  input,
+  textarea,
+  select {
+    background: transparent !important;
+  }
+}
+</style>
+</head>
+
+<template id="__bundler_thumbnail" data-bg-color="#006E79">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#006E79"/>
+    <rect x="0" y="0" width="1200" height="10" fill="#B42E34"/>
+    <g transform="translate(600,400)">
+      <rect x="-130" y="-190" width="260" height="340" rx="8" fill="#ffffff" opacity="0.95"/>
+      <rect x="-50" y="-210" width="100" height="28" rx="6" fill="#B42E34"/>
+      <line x1="-100" y1="-140" x2="100" y2="-140" stroke="#006E79" stroke-width="8" stroke-linecap="round"/>
+      <line x1="-100" y1="-90" x2="60" y2="-90" stroke="#00A0AF" stroke-width="6" stroke-linecap="round"/>
+      <line x1="-100" y1="-40" x2="100" y2="-40" stroke="#006E79" stroke-width="8" stroke-linecap="round"/>
+      <line x1="-100" y1="10" x2="80" y2="10" stroke="#00A0AF" stroke-width="6" stroke-linecap="round"/>
+      <line x1="-100" y1="60" x2="100" y2="60" stroke="#006E79" stroke-width="8" stroke-linecap="round"/>
+      <line x1="-100" y1="110" x2="50" y2="110" stroke="#00A0AF" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <text x="600" y="680" font-family="sans-serif" font-size="32" font-weight="600" fill="#ffffff" text-anchor="middle">NGS Capacity Assessment — Full Baseline</text>
+    <text x="600" y="720" font-family="sans-serif" font-size="20" fill="#A3CCCC" text-anchor="middle">APHL Global Health</text>
+  </svg>
+</template>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     TOP BAR
+     ═══════════════════════════════════════════════════════════ -->
+<header class="topbar">
+  <img class="logo" src="assets/logo-aphl.png" alt="APHL">
+  <div class="brand-text">Global Health · NGS Capacity Assessment</div>
+  <div class="spacer"></div>
+  <div class="actions">
+    <button type="button" onclick="expandAll()">Expand all</button>
+    <button type="button" onclick="collapseAll()">Collapse all</button>
+    <button type="button" onclick="clearAll()">Clear all</button>
+    <button type="button" onclick="window.print()">Print / PDF</button>
+    <button type="button" class="primary" onclick="openReview()">Review &amp; Export</button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Implementation Planning · Full Baseline</div>
+      <h1 class="hero-title">Pathogen Genomics Capacity Assessment</h1>
+      <p class="hero-sub">The comprehensive baseline assessment designed to be completed by multiple respondents over 2–4 hours, with different sections answered by the people closest to that work.</p>
+    </div>
+    <div class="hero-meta">
+      <dl>
+        <dt>For</dt>
+        <dd id="cover-lab-display">APHL member &amp; partner laboratories</dd>
+        <dt>Version</dt>
+        <dd>Full Baseline v1 · 2026</dd>
+        <dt>Time</dt>
+        <dd>2–4 hours (multi-respondent)</dd>
+        <dt>Saves</dt>
+        <dd>Automatically in your browser</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN CONTENT
+     ═══════════════════════════════════════════════════════════ -->
+<div class="wrap">
+
+  <div class="intro-card">
+    <h1>About this assessment</h1>
+    <p>This is the <strong>full baseline assessment</strong>. It is designed to be completed by multiple respondents over two to four hours, with different sections answered by the people closest to that work. A 30-minute pre-engagement version is available separately.</p>
+    <p><strong>How this works.</strong> Sections A through F and H through M apply to every laboratory. Section G contains application-specific modules. Modules will appear or stay hidden based on what you select in Section A.4. Responses are saved in your browser automatically. When you are done, use <strong>Review &amp; Export</strong> for a text summary or <strong>Print / PDF</strong> for a formatted record.</p>
+    <p class="emph">If a question does not apply, leave it blank or write N/A. Honest is better than inflated.</p>
+  </div>
+
+  <!-- Content will be dynamically generated by JavaScript -->
+  <div id="sections-container"></div>
+
+  <footer>
+    Pathogen Genomics Capacity Assessment, Full Baseline v1 · APHL Global Health · Responses saved locally in your browser
+  </footer>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     REVIEW MODAL
+     ═══════════════════════════════════════════════════════════ -->
+<div class="review-panel" id="review-panel" role="dialog" aria-modal="true">
+  <div class="review-card">
+    <h2>Review your responses</h2>
+    <p class="hint">A plain-text summary of everything entered. Copy it into an email to your APHL contact, or close and keep editing.</p>
+    <textarea id="review-text" readonly></textarea>
+    <div class="review-actions">
+      <button type="button" class="sec" onclick="downloadReview()">Download .txt</button>
+      <button type="button" class="sec" onclick="copyReview(this)">Copy to clipboard</button>
+      <button type="button" class="pri" onclick="closeReview()">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Saved</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// DATA: Applications, metadata fields, role types
+// ═══════════════════════════════════════════════════════════
+
+const APPS = [
+  { label: "Viral WGS: SARS-CoV-2", modules: ["viral"] },
+  { label: "Viral WGS: influenza", modules: ["viral"] },
+  { label: "Viral WGS: measles, mumps, rubella", modules: ["viral"] },
+  { label: "Viral WGS: mpox", modules: ["viral"] },
+  { label: "Viral WGS: respiratory viruses (RSV, adenovirus, etc.)", modules: ["viral"] },
+  { label: "Viral WGS: arboviruses (dengue, chikungunya, Zika)", modules: ["viral"] },
+  { label: "Viral WGS: HIV (drug resistance or surveillance)", modules: ["viral", "hiv"] },
+  { label: "Viral WGS: rabies, polio or other priority viruses", modules: ["viral"] },
+  { label: "Bacterial WGS: enteric pathogens (PulseNet-style)", modules: ["bacterial"] },
+  { label: "Bacterial WGS: Neisseria, Streptococcus or other respiratory", modules: ["bacterial"] },
+  { label: "Bacterial WGS: healthcare-associated (CRE, MRSA, CRAB, etc.)", modules: ["bacterial"] },
+  { label: "Bacterial WGS: foodborne (Listeria, Salmonella, STEC, etc.)", modules: ["bacterial"] },
+  { label: "Mycobacterium tuberculosis: targeted NGS for drug resistance", modules: ["tb"] },
+  { label: "Mycobacterium tuberculosis: WGS", modules: ["tb"] },
+  { label: "AMR surveillance by WGS of isolates", modules: ["amr"] },
+  { label: "AMR surveillance by metagenomics", modules: ["amr", "mngs"] },
+  { label: "Fungal WGS (Candida auris, Cryptococcus, etc.)", modules: ["fungal"] },
+  { label: "Parasite sequencing (Plasmodium, etc.)", modules: ["other"] },
+  { label: "Clinical metagenomics from human specimens", modules: ["mngs"] },
+  { label: "Shotgun metagenomics from environmental or food samples", modules: ["mngs"] },
+  { label: "Wastewater surveillance: SARS-CoV-2", modules: ["wastewater"] },
+  { label: "Wastewater surveillance: other pathogens or AMR", modules: ["wastewater"] },
+  { label: "Targeted amplicon panels (non-viral, other than tNGS TB)", modules: ["other"] },
+  { label: "Human genetic testing (newborn screening, oncology, etc.)", modules: ["other"] },
+  { label: "16S rRNA or ITS community profiling", modules: ["other"] }
+];
+
+const ACTIVE_STATUSES = ["Active", "Piloting", "Planned"];
+
+const META_FIELDS = [
+  "Specimen collection date",
+  "Specimen type and source",
+  "Collection location (district, facility)",
+  "Patient age and sex",
+  "Clinical presentation or syndrome",
+  "Ct value or diagnostic result",
+  "Vaccination status (where relevant)",
+  "Antimicrobial use history (where relevant)",
+  "Travel or exposure history",
+  "Outbreak cluster ID (where relevant)",
+  "Sample linkage to epidemiological record"
+];
+
+const ROLE_TYPES = [
+  "Laboratory director / manager",
+  "Wet lab technical staff (extraction, library prep)",
+  "Bioinformatics analyst",
+  "Data manager / LIMS administrator",
+  "Quality officer",
+  "Biosafety officer"
+];
+
+// ═══════════════════════════════════════════════════════════
+// STATE MANAGEMENT
+// ═══════════════════════════════════════════════════════════
+
+let formState = {};
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('ngs_full_baseline_v1');
+    if (saved) {
+      formState = JSON.parse(saved);
+      restoreFromState();
+    }
+  } catch (e) {
+    console.error('Failed to load state:', e);
+  }
+}
+
+function saveState() {
+  collectState();
+  try {
+    localStorage.setItem('ngs_full_baseline_v1', JSON.stringify(formState));
+    showToast();
+  } catch (e) {
+    console.error('Failed to save state:', e);
+  }
+}
+
+function collectState() {
+  // Text inputs, textareas, selects
+  document.querySelectorAll('[data-field]').forEach(el => {
+    formState[el.dataset.field] = el.value;
+  });
+  
+  // Checkboxes in groups
+  document.querySelectorAll('[data-group]').forEach(group => {
+    const checked = [];
+    group.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+      checked.push(cb.value);
+    });
+    formState[group.dataset.group] = checked;
+  });
+  
+  // Radio buttons
+  document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+    formState[radio.name] = radio.value;
+  });
+  
+  // Status grids
+  document.querySelectorAll('[data-statusgrid]').forEach(input => {
+    if (input.checked) {
+      const key = `${input.dataset.statusgrid}_${input.dataset.label}`;
+      formState[key] = input.value;
+    }
+  });
+  
+  // Roster tables
+  document.querySelectorAll('[data-roster]').forEach(table => {
+    const rosterKey = table.dataset.roster;
+    const data = [];
+    table.querySelectorAll('tbody tr').forEach(row => {
+      const rowData = [];
+      row.querySelectorAll('input').forEach(input => {
+        rowData.push(input.value);
+      });
+      if (rowData.some(v => v.trim())) {
+        data.push(rowData);
+      }
+    });
+    formState[rosterKey] = data;
+  });
+}
+
+function restoreFromState() {
+  // Text inputs
+  Object.keys(formState).forEach(key => {
+    const el = document.querySelector(`[data-field="${key}"]`);
+    if (el) {
+      el.value = formState[key];
+    }
+  });
+  
+  // Checkboxes
+  document.querySelectorAll('[data-group]').forEach(group => {
+    const values = formState[group.dataset.group] || [];
+    group.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      cb.checked = values.includes(cb.value);
+    });
+  });
+  
+  // Radios
+  document.querySelectorAll('input[type="radio"]').forEach(radio => {
+    if (formState[radio.name] === radio.value) {
+      radio.checked = true;
+    }
+  });
+  
+  // Status grids
+  document.querySelectorAll('[data-statusgrid]').forEach(input => {
+    const key = `${input.dataset.statusgrid}_${input.dataset.label}`;
+    if (formState[key] === input.value) {
+      input.checked = true;
+    }
+  });
+  
+  // Rosters
+  document.querySelectorAll('[data-roster]').forEach(table => {
+    const data = formState[table.dataset.roster] || [];
+    const inputs = table.querySelectorAll('tbody input');
+    let idx = 0;
+    data.forEach(rowData => {
+      rowData.forEach(val => {
+        if (inputs[idx]) {
+          inputs[idx].value = val;
+          idx++;
+        }
+      });
+    });
+  });
+}
+
+function showToast() {
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 1500);
+}
+
+// ═══════════════════════════════════════════════════════════
+// HELPER FUNCTIONS FOR BUILDING UI
+// ═══════════════════════════════════════════════════════════
+
+function el(tag, attrs = {}, ...children) {
+  const node = document.createElement(tag);
+  Object.entries(attrs).forEach(([k, v]) => {
+    if (k === 'class') node.className = v;
+    else if (k === 'data') {
+      Object.entries(v).forEach(([dk, dv]) => node.dataset[dk] = dv);
+    } else if (k === 'html') {
+      node.innerHTML = v;
+    } else if (k.startsWith('on')) {
+      node.addEventListener(k.slice(2), v);
+    } else {
+      node.setAttribute(k, v);
+    }
+  });
+  children.flat().filter(c => c != null && c !== false).forEach(c => {
+    if (typeof c === 'string') node.appendChild(document.createTextNode(c));
+    else node.appendChild(c);
+  });
+  return node;
+}
+
+function textField(key, label, opts = {}) {
+  return el('div', { class: 'field' },
+    el('label', {}, label),
+    el('input', { 
+      type: opts.type || 'text', 
+      'data-field': key,
+      ...(opts.placeholder && { placeholder: opts.placeholder }),
+      ...(opts.min != null && { min: opts.min }),
+      ...(opts.step != null && { step: opts.step })
+    })
+  );
+}
+
+function textArea(key, label, opts = {}) {
+  return el('div', { class: 'field' },
+    el('label', {}, label),
+    el('textarea', { 
+      'data-field': key,
+      ...(opts.rows && { rows: opts.rows }),
+      ...(opts.placeholder && { placeholder: opts.placeholder })
+    })
+  );
+}
+
+function sectionNotes(key) {
+  return el('div', { class: 'field', style: 'margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--aphl-gray-light);' },
+    el('label', {}, 'Notes for this section (optional)'),
+    el('textarea', { 
+      'data-field': key,
+      rows: 5,
+      placeholder: 'Add any additional notes or context for this section...'
+    })
+  );
+}
+
+function selectField(key, label, options) {
+  const select = el('select', { 'data-field': key });
+  options.forEach(opt => {
+    select.appendChild(el('option', { value: opt }, opt));
+  });
+  return el('div', { class: 'field' },
+    el('label', {}, label),
+    select
+  );
+}
+
+function row(...fields) {
+  return el('div', { class: 'row' }, fields);
+}
+
+function row3(...fields) {
+  return el('div', { class: 'row-3' }, fields);
+}
+
+function row4(...fields) {
+  return el('div', { class: 'row-4' }, fields);
+}
+
+function checklist(group, items, opts = {}) {
+  const div = el('div', { 
+    class: opts.oneCol ? 'options one-col' : 'options',
+    'data-group': group 
+  });
+  items.forEach(it => {
+    const value = typeof it === 'string' ? it : it.value;
+    const label = typeof it === 'string' ? it : it.label;
+    const withInput = typeof it === 'object' && it.extraKey;
+    
+    const checkbox = el('input', { type: 'checkbox', value });
+    const lbl = el('label', {}, checkbox, ` ${label}`);
+    
+    if (withInput) {
+      const extra = el('input', { 
+        type: 'text', 
+        'data-field': it.extraKey,
+        placeholder: it.extraPlaceholder || 'specify'
+      });
+      lbl.appendChild(el('span', {}, ' '));
+      lbl.appendChild(extra);
+    }
+    
+    div.appendChild(lbl);
+  });
+  return div;
+}
+
+function radioGroup(name, items, opts = {}) {
+  const div = el('div', { 
+    class: opts.oneCol ? 'options one-col' : 'options'
+  });
+  items.forEach(it => {
+    const value = typeof it === 'string' ? it : it.value;
+    const label = typeof it === 'string' ? it : it.label;
+    const radio = el('input', { type: 'radio', name, value });
+    const lbl = el('label', {}, radio, ` ${label}`);
+    div.appendChild(lbl);
+  });
+  return div;
+}
+
+function ynRow(key, question) {
+  const div = el('div', { class: 'yn-row', 'data-yn': key });
+  div.appendChild(el('div', { class: 'question' }, question));
+  
+  const choices = el('div', { class: 'yn-choices' });
+  ['Yes', 'No', 'Unsure / NA'].forEach(v => {
+    const radio = el('input', { type: 'radio', name: key, value: v });
+    const lbl = el('label', {}, radio, v);
+    choices.appendChild(lbl);
+  });
+  
+  div.appendChild(choices);
+  return div;
+}
+
+function ynBlock(entries) {
+  const frag = document.createDocumentFragment();
+  entries.forEach(([k, q]) => frag.appendChild(ynRow(k, q)));
+  return frag;
+}
+
+function statusGrid(name, items, statuses) {
+  const table = el('table', { class: 'data' });
+  
+  // Header
+  const thead = el('thead');
+  const headRow = el('tr');
+  headRow.appendChild(el('th', {}, ''));
+  statuses.forEach(s => headRow.appendChild(el('th', { class: 'status' }, s)));
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+  
+  // Body
+  const tbody = el('tbody');
+  items.forEach((item, i) => {
+    const tr = el('tr');
+    tr.appendChild(el('td', {}, item));
+    statuses.forEach(s => {
+      const td = el('td', { class: 'status' });
+      const radio = el('input', {
+        type: 'radio',
+        name: `${name}_${i}`,
+        value: s,
+        'data-label': item,
+        'data-statusgrid': name
+      });
+      const lbl = el('label', {}, radio);
+      td.appendChild(lbl);
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+  
+  return table;
+}
+
+function rosterTable(key, headers, numericCols = []) {
+  const table = el('table', { class: 'data', 'data-roster': key });
+  
+  // Header
+  const thead = el('thead');
+  const hr = el('tr');
+  headers.forEach(h => hr.appendChild(el('th', {}, h)));
+  thead.appendChild(hr);
+  table.appendChild(thead);
+  
+  // Body (8 rows)
+  const tbody = el('tbody');
+  for (let r = 0; r < 8; r++) {
+    const tr = el('tr');
+    headers.forEach((h, ci) => {
+      const td = el('td');
+      const input = el('input', {
+        type: numericCols.includes(ci) ? 'number' : 'text',
+        'data-field': `${key}_${r}_${ci}`,
+        ...(numericCols.includes(ci) && { min: 0 })
+      });
+      td.appendChild(input);
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  }
+  table.appendChild(tbody);
+  
+  return table;
+}
+
+function h3sub(ref, title, muted = '') {
+  const h3 = el('h3', { class: 'sub' });
+  const left = el('span', {}, 
+    el('span', { class: 'ref' }, ref),
+    title
+  );
+  h3.appendChild(left);
+  if (muted) {
+    h3.appendChild(el('span', { class: 'muted' }, muted));
+  }
+  return h3;
+}
+
+function h4minor(title) {
+  return el('h4', { class: 'sub-minor' }, title);
+}
+
+function hint(text) {
+  return el('p', { class: 'hint' }, text);
+}
+
+// ═══════════════════════════════════════════════════════════
+// BUILD SECTIONS
+// ═══════════════════════════════════════════════════════════
+
+function buildSections() {
+  const container = document.getElementById('sections-container');
+  
+  // Section A
+  container.appendChild(buildSection('A', 'Context, Mandate and Scope', [
+    hint('Your answers here drive which Section G modules appear.'),
+    h3sub('A.1', 'Laboratory identification'),
+    row(
+      textField('a1_country', 'Country'),
+      textField('a1_lab_name', 'Laboratory name')
+    ),
+    textField('a1_tier', 'Laboratory tier', { placeholder: 'National Reference or Regional or Sub-national or Academic or Private or Other' }),
+    row(
+      textField('a1_parent', 'Parent institution or ministry'),
+      textField('a1_date', 'Date of assessment', { type: 'date' })
+    ),
+    
+    h3sub('A.2', 'Laboratory mandate', 'select all that apply'),
+    checklist('a2_mandate', [
+      'Routine diagnostic testing for patient management',
+      'National reference or confirmatory testing',
+      'Outbreak investigation and response',
+      'Routine disease surveillance',
+      'Sentinel surveillance site',
+      'Antimicrobial resistance surveillance',
+      'Research and development',
+      'Proficiency testing provider for other laboratories',
+      'Training or capacity building for other laboratories',
+      'Biosecurity or biothreat response',
+      { value: 'Other', label: 'Other', extraKey: 'a2_mandate_other', extraPlaceholder: 'specify' }
+    ]),
+    
+    h3sub('A.3', 'Priority pathogens for this laboratory'),
+    hint('List the pathogens that are highest priority for your national or institutional mandate.'),
+    textArea('a3_priority_pathogens', 'Priority pathogens (list up to 10)', { rows: 4 }),
+    
+    h3sub('A.4', 'Current sequencing applications'),
+    hint('For each application, indicate whether it is Active, Piloting, Planned, or Not applicable. This selection controls which Section G modules appear.'),
+    statusGrid('a4_apps', APPS.map(a => a.label), ['Active', 'Piloting', 'Planned', 'Not applicable']),
+    
+    h3sub('A.5', 'Intended direction (12 to 18 months)'),
+    hint('Briefly describe what you want your laboratory sequencing capacity to look like in 12 to 18 months.'),
+    textArea('a5_direction', 'Intended direction', { rows: 4 }),
+    
+    h3sub('A.6', 'Existing genomic surveillance partnerships'),
+    hint('List current and planned genomic surveillance partnerships, projects, funders or networks active at your laboratory.'),
+    rosterTable('a6_partners', ['Partner or programme', 'Contact', 'Scope', 'Status']),
+    
+    h3sub('A.7', 'Networks and reference frameworks', 'select any that apply'),
+    checklist('a7_networks', [
+      'Global Influenza Surveillance and Response System (GISRS)',
+      'PulseNet International or regional PulseNet network',
+      'Global Antimicrobial Resistance Surveillance System (GLASS)',
+      'WHO tuberculosis genomic surveillance network',
+      'HIV drug resistance surveillance network',
+      'Africa CDC Pathogen Genomics Initiative',
+      'Regional genomic surveillance platform',
+      'FIND, CEPI, CARB-X or other product development partner',
+      'Fleming Fund country or regional grant',
+      { value: 'Other', label: 'Other', extraKey: 'a7_networks_other', extraPlaceholder: 'specify' }
+    ]),
+    
+    sectionNotes('notes_section_a')
+  ]));
+  
+  // Section B
+  container.appendChild(buildSection('B', 'Core Infrastructure and Biosafety', [
+    h3sub('B.1', 'Laboratory environment'),
+    ynBlock([
+      ['b1_temp', 'Is laboratory temperature maintained between 19 and 25 degrees C around the clock?'],
+      ['b1_humidity', 'Is relative humidity monitored and kept in range (30 to 75 percent)?'],
+      ['b1_dust', 'Is the laboratory free from significant dust and vibration at sequencer locations?'],
+      ['b1_lighting', 'Is lighting sufficient for reading reagent labels and sample IDs?']
+    ]),
+    textField('b1_monitoring', 'Method used for environmental monitoring', { placeholder: 'manual log, digital sensors, BMS' }),
+    
+    h3sub('B.2', 'Biosafety'),
+    h4minor('Highest biosafety level available at this laboratory'),
+    checklist('b2_bsl', ['BSL-1', 'BSL-2', 'BSL-2 enhanced', 'BSL-3', 'BSL-4']),
+    ynBlock([
+      ['b2_bsc', 'Are dedicated biosafety cabinets available for specimen manipulation?'],
+      ['b2_bsc_cert', 'Are biosafety cabinets on a documented certification schedule?'],
+      ['b2_manual', 'Is there a written biosafety manual reviewed in the last 24 months?'],
+      ['b2_training', 'Has biosafety training been delivered to all staff in the last 12 months?'],
+      ['b2_risk', 'Are risk assessments performed for new pathogens or new procedures?']
+    ]),
+    
+    h3sub('B.3', 'Laboratory zoning for NGS'),
+    ynBlock([
+      ['b3_pre', 'Is there a physically separate pre-PCR or clean area?'],
+      ['b3_setup', 'Is there a separate PCR set-up or master mix area?'],
+      ['b3_post', 'Is there a separate post-PCR or library preparation area?'],
+      ['b3_flow', 'Is unidirectional workflow enforced (clean to dirty)?'],
+      ['b3_dedicated', 'Are dedicated pipettes, gowns and materials kept in each zone?']
+    ]),
+    
+    h3sub('B.4', 'Power and environmental services'),
+    ynBlock([
+      ['b4_ups', 'Are all sequencers protected by UPS?'],
+      ['b4_gen', 'Is there a backup generator covering the laboratory?']
+    ]),
+    row3(
+      textField('b4_gen_test', 'Generator test frequency'),
+      textField('b4_outages_per_mo', 'Average power outages per month'),
+      textField('b4_outage_dur', 'Typical duration of outages')
+    ),
+    ynRow('b4_run_lost', 'Has a sequencing run been lost or aborted due to power failure in the past 12 months?'),
+    
+    h3sub('B.5', 'Cold chain'),
+    ynBlock([
+      ['b5_m20', 'Is there a minus 20°C freezer reserved for sequencing reagents?'],
+      ['b5_m80', 'Is there a minus 80°C freezer available for reagent and specimen storage?'],
+      ['b5_monitor', 'Are freezers on continuous temperature monitoring with alarm?'],
+      ['b5_inventory', 'Is there a reagent inventory system in place?']
+    ]),
+    
+    h3sub('B.6', 'Water, waste and maintenance'),
+    ynBlock([
+      ['b6_water', 'Is Type 1 (molecular grade) water consistently available?'],
+      ['b6_waste', 'Is there a documented biohazard and chemical waste pathway?'],
+      ['b6_pm', 'Is preventive maintenance documented for major instruments?'],
+      ['b6_service', 'Are service contracts in place for critical equipment?']
+    ]),
+    
+    sectionNotes('notes_section_b')
+  ]));
+  
+  // Section C
+  container.appendChild(buildSection('C', 'Sample-to-Sequence Workflow', [
+    hint('The rate-limiting step is often not the sequencer but the workflow around it: specimen logistics, metadata completeness and post-sequencing data management.'),
+    
+    h3sub('C.1', 'Specimen sources'),
+    checklist('c1_sources', [
+      'Specimens referred from clinical laboratories',
+      'Specimens collected from sentinel surveillance sites',
+      'Retrospective archived specimens and isolates',
+      'Environmental samples (wastewater, surfaces)',
+      'Veterinary or One Health samples',
+      'Food or feed samples',
+      'Samples from in-house diagnostic activity',
+      'Specimens received from international or cross-border partners'
+    ]),
+    
+    h3sub('C.2', 'Specimen reception and accessioning'),
+    ynBlock([
+      ['c2_central', 'Is there a central receiving point for all sequencing-bound specimens?'],
+      ['c2_rejection', 'Are rejection criteria written and applied (volume, temperature, paperwork)?'],
+      ['c2_electronic', 'Is specimen receipt logged electronically?']
+    ]),
+    textField('c2_tat_accession', 'Typical time from specimen arrival to accessioning'),
+    
+    h3sub('C.3', 'Sample tracking and LIMS'),
+    h4minor('What system tracks samples through sequencing?'),
+    checklist('c3_lims', [
+      { value: 'Commercial LIMS', label: 'Commercial LIMS', extraKey: 'c3_lims_commercial_name', extraPlaceholder: 'name/vendor' },
+      'Custom or in-house LIMS',
+      'Spreadsheets',
+      'Paper records',
+      'Mixed / hybrid'
+    ]),
+    ynBlock([
+      ['c3_uid', 'Are unique sample identifiers used consistently from receipt to sequence?'],
+      ['c3_link_instrument', 'Is the LIMS linked to the sequencing instrument run plan?'],
+      ['c3_link_bioinfo', 'Is the LIMS linked to bioinformatics outputs?']
+    ]),
+    
+    h3sub('C.4', 'Metadata completeness'),
+    hint('For each metadata field, indicate how routinely it is captured for sequenced samples. Incomplete metadata is one of the most common barriers to useful public health genomics.'),
+    statusGrid('c4_meta', META_FIELDS, ['Routine', 'Often', 'Rare', 'Not captured']),
+    
+    h3sub('C.5', 'Sample selection'),
+    hint('How are samples selected for sequencing when not every sample can be sequenced?'),
+    checklist('c5_selection', [
+      'Random or representative subsampling',
+      'Prioritised by clinical criteria (severity, breakthrough, outbreak)',
+      'Prioritised by epidemiological signal',
+      'All specimens meeting criteria are sequenced',
+      'Informal or ad hoc',
+      'Not currently defined'
+    ]),
+    textArea('c5_strategy', 'Describe the selection strategy in one to two sentences', { rows: 2 }),
+    
+    h3sub('C.6', 'Specimen and isolate storage'),
+    ynBlock([
+      ['c6_short', 'Is there short-term storage for active sequencing specimens?'],
+      ['c6_long', 'Is there long-term storage (minus 80°C or LN2) for biobanking?'],
+      ['c6_biobank', 'Is a retrospective specimen or isolate biobank actively maintained?'],
+      ['c6_chain', 'Are sample withdrawal and chain of custody tracked?']
+    ]),
+    
+    sectionNotes('notes_section_c')
+  ]));
+  
+  // Section D - Wet Lab
+  container.appendChild(buildSection('D', 'Wet Laboratory Capability', [
+    h3sub('D.1', 'Nucleic acid extraction'),
+    h4minor('Methods in routine use'),
+    checklist('d1_methods', [
+      'Manual silica spin columns (Qiagen QIAamp or equivalent)',
+      'Manual magnetic bead-based (hand-operated)',
+      'Automated magnetic bead (bioMérieux, Roche MagNA Pure, Promega Maxwell, KingFisher, etc.)',
+      'Direct lysis / extraction-free workflows',
+      'Phenol-chloroform (flag for review)',
+      { value: 'Other', label: 'Other', extraKey: 'd1_methods_other' }
+    ]),
+    textArea('d1_auto_platforms', 'Automated extraction platforms available (make and model)', { rows: 2 }),
+    
+    h3sub('D.2', 'Quality control instrumentation'),
+    checklist('d2_qc', [
+      'Qubit fluorometer',
+      'NanoDrop or similar UV spectrophotometer',
+      'Agilent Bioanalyzer',
+      'Agilent TapeStation',
+      'QIAxcel',
+      'Femto Pulse',
+      'LabChip GX',
+      'Real-time PCR for library quantification (KAPA, NEB, etc.)',
+      { value: 'Other', label: 'Other', extraKey: 'd2_qc_other' }
+    ]),
+    
+    h3sub('D.3', 'Thermocyclers'),
+    rosterTable('d3_thermocyclers', ['Make', 'Model', 'Count', 'Under service contract?'], [2]),
+    
+    h3sub('D.4', 'Library preparation kits in routine use'),
+    h4minor('Illumina-compatible preps'),
+    checklist('d4_illumina', [
+      'Illumina DNA Prep (Nextera DNA Flex)',
+      'Illumina DNA Prep with Enrichment',
+      'Nextera XT',
+      'TruSeq DNA PCR-Free',
+      'TruSeq Stranded mRNA or Total RNA',
+      'Illumina RNA Prep with Enrichment',
+      'NEBNext',
+      'KAPA HyperPrep or HyperPlus',
+      'QIAseq (various)',
+      'Twist library prep and enrichment',
+      'xGen (IDT) library prep and enrichment'
+    ]),
+    
+    h4minor('Amplicon-based preps'),
+    checklist('d4_amplicon', [
+      'ARTIC-style multiplex PCR (SARS-CoV-2, mpox, etc.)',
+      'Midnight-style long amplicon primers',
+      { value: 'Custom primer panels', label: 'Custom primer panels', extraKey: 'd4_amplicon_custom' }
+    ]),
+    
+    h4minor('Nanopore preps'),
+    checklist('d4_nanopore', [
+      'Ligation Sequencing Kit (LSK114 or current)',
+      'Rapid Sequencing Kit',
+      'Rapid Barcoding Kit',
+      'Native Barcoding Kit',
+      'Direct RNA Sequencing Kit',
+      'PCR Barcoding Kit'
+    ]),
+    
+    h4minor('Ion Torrent preps'),
+    checklist('d4_ion', [
+      'Ion AmpliSeq panels',
+      'Ion Chef-based library prep',
+      'Genexus-integrated prep'
+    ]),
+    
+    h4minor('Other preps'),
+    checklist('d4_other', [
+      'PacBio HiFi or SMRTbell',
+      'MGI DNBSEQ library prep',
+      'Element Adept or AVITI-compatible prep',
+      { value: 'Other', label: 'Other', extraKey: 'd4_other_other' }
+    ]),
+    
+    h3sub('D.5', 'Automation'),
+    ynRow('d5_handler', 'Does the laboratory have an automated liquid handler (Tecan, Hamilton, Opentrons, Beckman Biomek, Ion Chef, etc.)?'),
+    textField('d5_handler_make', 'Make and model'),
+    ynRow('d5_auto_prep', 'Is at least one library preparation workflow automated?'),
+    textField('d5_auto_which', 'Which preps are automated'),
+    
+    h3sub('D.6', 'Ordering and supply'),
+    ynRow('d6_primers_local', 'Are oligonucleotide primers routinely ordered in-country?'),
+    textField('d6_primers_tat', 'Typical turnaround time for primer orders'),
+    h4minor('How often does the laboratory design and order new custom primers?'),
+    radioGroup('d6_custom', [
+      { value: 'Routinely', label: 'Routinely (regularly, as part of normal workflow)' },
+      { value: 'Occasionally', label: 'Occasionally' },
+      { value: 'Rarely or never', label: 'Rarely or never' }
+    ], { oneCol: true }),
+    
+    sectionNotes('notes_section_d')
+  ]));
+  
+  // Section E - Platforms
+  container.appendChild(buildSection('E', 'Sequencing Platforms and Consumables', [
+    hint('List only instruments physically at your site.'),
+    
+    h3sub('E.1', 'Illumina instruments'),
+    checklist('e1_illumina', [
+      'iSeq 100',
+      'MiniSeq',
+      'MiSeq (classic)',
+      'MiSeq i100 or i100 Plus series',
+      'NextSeq 550',
+      'NextSeq 1000',
+      'NextSeq 2000',
+      'NovaSeq 6000',
+      'NovaSeq X (single flow cell)',
+      'NovaSeq X Plus (dual flow cell)',
+      'None'
+    ]),
+    
+    h4minor('Reagent kits in routine use'),
+    checklist('e1_kits', [
+      'iSeq 100 i1 v2',
+      'MiniSeq Mid or High Output',
+      'MiSeq v2, v3, v2 Nano, v2 Micro',
+      'NextSeq 500/550 Mid or High Output',
+      'NextSeq 1000/2000 P1, P2, P3, P4 (standard SBS)',
+      'NextSeq 1000/2000 P1, P2, P3, P4 (XLEAP-SBS)',
+      'NovaSeq 6000 SP, S1, S2, S4',
+      'NovaSeq X 1.5B, 10B, 25B'
+    ]),
+    
+    h3sub('E.2', 'Oxford Nanopore instruments'),
+    checklist('e2_nanopore', [
+      'MinION Mk1B (requires external compute)',
+      'MinION Mk1C (integrated compute)',
+      'MinION Mk1D (integrated compute, successor to Mk1C)',
+      'GridION Mk1',
+      'P2 Solo (requires host compute)',
+      'P2 (integrated compute)',
+      'PromethION 24',
+      'PromethION 48',
+      'None'
+    ]),
+    
+    h4minor('Flow cells in current use'),
+    checklist('e2_flowcells', [
+      'R10.4.1 (standard)',
+      'Flongle',
+      'PromethION Plus (limited release)',
+      'R9.4.1 (legacy, flag for review)'
+    ]),
+    
+    h3sub('E.3', 'Ion Torrent instruments'),
+    checklist('e3_ion', [
+      'Ion GeneStudio S5',
+      'Ion GeneStudio S5 Plus',
+      'Ion GeneStudio S5 Prime',
+      'Ion Genexus Integrated Sequencer',
+      'None'
+    ]),
+    
+    h4minor('Chip types in use'),
+    checklist('e3_chips', [
+      'Ion 510, 520, 530, 540, 550 Chip',
+      'Genexus strips'
+    ]),
+    
+    h3sub('E.4', 'PacBio instruments'),
+    checklist('e4_pacbio', [
+      'Revio',
+      'Sequel IIe',
+      'Sequel II (legacy)',
+      'None'
+    ]),
+    
+    h3sub('E.5', 'Other sequencing platforms'),
+    checklist('e5_other', [
+      'Element Biosciences AVITI',
+      'Element AVITI24',
+      'MGI or Complete Genomics DNBSEQ-G99',
+      'MGI DNBSEQ-G400 (BGISEQ-500)',
+      'MGI DNBSEQ-T7',
+      'Singular Genomics G4',
+      { value: 'Other', label: 'Other', extraKey: 'e5_other_other' }
+    ]),
+    
+    h3sub('E.6', 'Sanger sequencing'),
+    checklist('e6_sanger', [
+      { value: 'ABI Genetic Analyzer series', label: 'ABI Genetic Analyzer 3130 / 3500 / 3730 series', extraKey: 'e6_sanger_model' },
+      'Promega Spectrum',
+      'None'
+    ]),
+    
+    h3sub('E.7', 'Instrument utilisation and readiness'),
+    rosterTable('e7_util', ['Instrument (model)', 'Runs in last 6 months', 'Service status', 'Notes'], [1]),
+    
+    h3sub('E.8', 'Reagent availability and procurement'),
+    h4minor('How are NGS reagents typically procured?'),
+    checklist('e8_procurement', [
+      'Local vendor (in-country distributor)',
+      'International supplier (direct import)',
+      'Pooled or central procurement via ministry or programme',
+      'Donor-supplied through a specific project',
+      'Mixed'
+    ]),
+    ynBlock([
+      ['e8_stockout', 'Do reagent stockouts of more than 2 weeks occur at least annually?'],
+      ['e8_import', 'Are there import, customs or foreign currency barriers?']
+    ]),
+    textField('e8_lead', 'Typical lead time from order to receipt of reagents'),
+    ynRow('e8_reorder', 'Is there a documented minimum stock threshold and reorder trigger?'),
+    
+    h3sub('E.9', 'Planned instrument acquisitions'),
+    textArea('e9_planned', 'Planned acquisitions in the next 18 months and funding source', { rows: 3 }),
+    
+    sectionNotes('notes_section_e')
+  ]));
+  
+  // Section F - Bioinformatics
+  container.appendChild(buildSection('F', 'Bioinformatics, Compute and Reproducibility', [
+    hint('LMIC reviews of pathogen genomics repeatedly identify the "bioinformatics bottleneck" as the largest single barrier to actionable genomic surveillance.'),
+    
+    h3sub('F.1', 'Compute resources in use'),
+    checklist('f1_compute', [
+      'Dedicated analysis workstation(s) at the laboratory',
+      'On-premises server or HPC (institutional or national)',
+      'Cloud (AWS, GCP, Azure or equivalent)',
+      'Shared academic or partner HPC',
+      'On-instrument analysis only (DRAGEN, EPI2ME, etc.)',
+      'No local compute: data is sent elsewhere'
+    ]),
+    
+    h3sub('F.2', 'Primary analysis workstation specs'),
+    hint('Enter the specs of the workstation most commonly used for sequencing data analysis.'),
+    row3(
+      textField('f2_ram', 'RAM (GB)', { type: 'number', min: 0 }),
+      textField('f2_cpu', 'CPU cores', { type: 'number', min: 0 }),
+      textField('f2_storage', 'Storage (TB)', { type: 'number', min: 0, step: 0.5 })
+    ),
+    row3(
+      textField('f2_gpu', 'GPU (make or model, or None)'),
+      textField('f2_os', 'Operating system'),
+      textField('f2_year', 'Year of purchase')
+    ),
+    
+    h3sub('F.3', 'Server or HPC'),
+    ynRow('f3_server', 'On-premises server dedicated to sequencing analysis?'),
+    textField('f3_server_spec', 'Server spec (RAM, cores, storage)'),
+    ynBlock([
+      ['f3_hpc', 'Access to an institutional or national HPC cluster?'],
+      ['f3_scheduler', 'Are queue or scheduling systems (Slurm, SGE, PBS) used?']
+    ]),
+    
+    h3sub('F.4', 'Cloud'),
+    ynBlock([
+      ['f4_cloud_allowed', 'Is cloud computing of de-identified genomic data permitted?'],
+      ['f4_cloud_used', 'Is there active use of cloud compute for genomics?']
+    ]),
+    
+    h4minor('Cloud platforms in use'),
+    checklist('f4_platforms', [
+      'AWS (including AWS GovCloud)',
+      'Google Cloud Platform',
+      'Microsoft Azure',
+      'Terra.bio or Nextflow Tower',
+      'Illumina BaseSpace or DRAGEN Cloud',
+      'Oxford Nanopore EPI2ME cloud',
+      'Galaxy (public or institutional)',
+      'Pathogenwatch',
+      'CGE tools (ResFinder, VirulenceFinder, etc.)',
+      { value: 'Other', label: 'Other', extraKey: 'f4_platforms_other' }
+    ]),
+    
+    h3sub('F.5', 'Operating systems and environments'),
+    h4minor('Operating system(s) in use for analysis'),
+    checklist('f5_os', [
+      { value: 'Linux', label: 'Linux', extraKey: 'f5_os_linux_dist', extraPlaceholder: 'distribution' },
+      'Windows (WSL or native)',
+      'macOS'
+    ]),
+    
+    h4minor('Environment management'),
+    checklist('f5_env', [
+      'Conda or Mamba environments',
+      'Docker containers',
+      'Singularity or Apptainer containers',
+      'Python virtual environments',
+      'Renv (for R)',
+      'None of the above'
+    ]),
+    
+    h3sub('F.6', 'Workflow managers'),
+    ynRow('f6_uses_wf', 'Does the laboratory use a workflow manager?'),
+    
+    h4minor('Workflow managers in use'),
+    checklist('f6_wfm', [
+      'Nextflow (including nf-core pipelines)',
+      'Snakemake',
+      'WDL / Cromwell',
+      'Galaxy',
+      'None'
+    ]),
+    
+    h3sub('F.7', 'Analysis software and pipelines in routine use'),
+    h4minor('Commercial or licensed platforms'),
+    checklist('f7_commercial', [
+      'CLC Genomics Workbench',
+      'BioNumerics',
+      'Geneious Prime',
+      'SeqSphere+',
+      'Qiagen Ingenuity / OmicSoft',
+      { value: 'Other', label: 'Other', extraKey: 'f7_commercial_other' }
+    ]),
+    
+    h4minor('Open-source or community pipelines'),
+    checklist('f7_opensource', [
+      'nf-core pipelines (viralrecon, bacass, mag, ampliseq, taxprofiler, etc.)',
+      'TheiaGen / StaPH-B open pipelines',
+      'CDC-developed pipelines (MycoSNP-nf, Varpipe, NCBI AMRFinderPlus)',
+      'Custom in-house pipelines',
+      { value: 'Other', label: 'Other', extraKey: 'f7_opensource_other' }
+    ]),
+    
+    h4minor('Interactive or desktop tools'),
+    checklist('f7_tools', [
+      'MEGA',
+      'UGENE',
+      'FigTree',
+      'iTOL',
+      'MicrobeTrace',
+      'Microreact',
+      'Nextclade, Nextstrain',
+      'Pangolin (SARS-CoV-2)',
+      'AUGUR',
+      { value: 'Other', label: 'Other', extraKey: 'f7_tools_other' }
+    ]),
+    
+    h3sub('F.8', 'Databases and reference resources'),
+    h4minor('Reference databases the laboratory routinely uses'),
+    checklist('f8_db', [
+      'NCBI GenBank / RefSeq',
+      'NCBI Pathogen Detection',
+      'European Nucleotide Archive (ENA)',
+      'DDBJ',
+      'GISAID (EpiCoV, EpiFlu, EpiPox)',
+      'CARD, ResFinder, PointFinder, PlasmidFinder, VirulenceFinder',
+      'NCBI AMRFinderPlus reference database',
+      'PubMLST',
+      'Enterobase',
+      'TB-Profiler / TBDB',
+      'BV-BRC (formerly PATRIC)',
+      { value: 'Other', label: 'Other', extraKey: 'f8_db_other' }
+    ]),
+    
+    h3sub('F.9', 'Reproducibility practices'),
+    ynBlock([
+      ['f9_git', 'Is code or pipeline configuration version-controlled (Git)?'],
+      ['f9_versions', 'Are reference database versions and pipeline versions recorded?'],
+      ['f9_archived', 'Are analysis logs and outputs archived with sample metadata?'],
+      ['f9_validated', 'Are pipelines validated before being used for reportable results?']
+    ]),
+    
+    h3sub('F.10', 'Internet and data movement'),
+    hint('Please run speedtest.net or equivalent from the laboratory network.'),
+    row4(
+      textField('f10_dl', 'Download (Mbps)', { type: 'number', min: 0, step: 0.1 }),
+      textField('f10_up', 'Upload (Mbps)', { type: 'number', min: 0, step: 0.1 }),
+      textField('f10_ping', 'Ping (ms)', { type: 'number', min: 0 }),
+      textField('f10_time', 'Time of day measured')
+    ),
+    ynBlock([
+      ['f10_upload', 'Is data upload to external repositories or cloud permitted?'],
+      ['f10_blocked', 'Have firewall or bandwidth limitations blocked a genomics workflow in the past 12 months?']
+    ]),
+    
+    sectionNotes('notes_section_f')
+  ]));
+  
+  // Section G Header + Modules Placeholder
+  const gHeader = el('div', { id: 'section-g-header' });
+  gHeader.appendChild(buildSectionHeader('G', 'Application-specific Modules'));
+  const gBody = el('div', { class: 'section-body' });
+  gBody.appendChild(hint('Modules below appear automatically based on what you selected in Section A.4. Only modules matching your Active, Piloting or Planned applications are shown. The "Other" module is always available.'));
+  gBody.appendChild(el('div', { 
+    class: 'modules-inactive-banner', 
+    id: 'inactive-banner', 
+    style: 'display:none;' 
+  }, el('strong', {}, 'No application modules are currently active. '), 'Mark at least one application as Active, Piloting or Planned in Section A.4 to unlock the relevant Section G modules. The "G.9 Other" module is still available below for free-text description.'));
+  
+  const gSection = el('div', { class: 'section', id: 'sec-g' });
+  gSection.appendChild(gHeader);
+  gSection.appendChild(gBody);
+  
+  // Add module placeholders
+  gBody.appendChild(buildModule('viral', 'G.1 Viral Genomic Surveillance', 
+    'Complete this module because your laboratory performs or is planning to perform viral WGS.', [
+    h3sub('G.1.1', 'Viruses sequenced or planned'),
+    textField('g1_current', 'List viruses currently sequenced'),
+    textField('g1_planned', 'List viruses planned for next 12 to 18 months'),
+    
+    h3sub('G.1.2', 'Approach'),
+    checklist('g1_approach', [
+      'Amplicon-based (ARTIC, Midnight or equivalent)',
+      'Hybrid capture / enrichment',
+      'Metagenomic shotgun (no targeted enrichment)',
+      'Direct RNA sequencing (Nanopore)',
+      'Whole genome from culture isolate'
+    ]),
+    
+    h3sub('G.1.3', 'Analysis tools / pipelines'),
+    checklist('g1_tools', [
+      'TheiaCoV (Theiagen, Terra-based viral pipeline; supports SARS-CoV-2, MPXV, HIV, WNV, Influenza, RSV-A, RSV-B, Measles, Mumps, Rubella)',
+      'nf-core/viralrecon',
+      'ARTIC pipelines',
+      'Nextclade / Nextstrain',
+      'Pangolin (SARS-CoV-2)',
+      { value: 'Other', label: 'Other', extraKey: 'g1_tools_other' }
+    ]),
+    
+    h3sub('G.1.4', 'Validation and reporting'),
+    ynBlock([
+      ['g1_validated', 'Are viral WGS assays validated for reportable public health use?'],
+      ['g1_lineage', 'Are lineage or clade calls reported to national surveillance?'],
+      ['g1_voi', 'Are variant-of-concern or variant-of-interest calls made and communicated?']
+    ]),
+    textField('g1_tat', 'Typical turnaround time (specimen to reported sequence)'),
+    
+    h3sub('G.1.5', 'Data sharing'),
+    checklist('g1_sharing', [
+      'Submitted to GISAID (EpiCoV / EpiFlu / EpiPox)',
+      'Submitted to NCBI GenBank or SRA',
+      'Submitted to ENA or DDBJ',
+      'Submitted to a regional or national repository only',
+      'Not routinely shared'
+    ]),
+    
+    sectionNotes('notes_section_g1')
+  ]));
+  
+  gBody.appendChild(buildModule('bacterial', 'G.2 Bacterial WGS (PulseNet-style)',
+    'Complete this module because your laboratory performs or is planning bacterial WGS for outbreak surveillance.', [
+    h3sub('G.2.1', 'Bacterial targets'),
+    textField('g2_current', 'Organisms currently sequenced'),
+    textField('g2_planned', 'Organisms planned'),
+    
+    h3sub('G.2.2', 'Workflow'),
+    ynBlock([
+      ['g2_culture', 'Is pure culture typically available before sequencing?'],
+      ['g2_biobank', 'Are isolates banked as part of the workflow?'],
+      ['g2_typing', 'Are species ID, MLST and serotype calls generated from WGS?'],
+      ['g2_cluster', 'Are SNP-based or cgMLST comparisons used for cluster detection?']
+    ]),
+    
+    h3sub('G.2.3', 'Network participation'),
+    checklist('g2_networks', [
+      'PulseNet International',
+      { value: 'PulseNet regional', label: 'PulseNet regional network', extraKey: 'g2_regional_name' },
+      'GLASS-linked surveillance',
+      'National bacterial surveillance scheme',
+      'None'
+    ]),
+    
+    h3sub('G.2.4', 'Typing or analysis tools'),
+    checklist('g2_tools', [
+      'TheiaProk (Theiagen, Terra-based bacterial pipeline)',
+      'Bactopia',
+      'BioNumerics (PulseNet standard)',
+      'chewBBACA (cgMLST allele calling)',
+      'SeqSphere+',
+      'Enterobase',
+      'CDC-developed pipelines',
+      { value: 'Other', label: 'Other', extraKey: 'g2_tools_other' }
+    ]),
+    
+    sectionNotes('notes_section_g2')
+  ]));
+  
+  gBody.appendChild(buildModule('amr', 'G.3 AMR Genomic Surveillance',
+    'Complete this module because your laboratory performs or is planning genomic AMR surveillance.', [
+    h3sub('G.3.1', 'Priority AMR pathogens', 'select priorities'),
+    checklist('g3_pathogens', [
+      'Acinetobacter baumannii, carbapenem-resistant (critical)',
+      'Enterobacterales, carbapenem-resistant (critical)',
+      'Enterobacterales, third-generation cephalosporin-resistant (critical)',
+      'Mycobacterium tuberculosis, rifampicin-resistant (critical)',
+      'Salmonella Typhi, fluoroquinolone-resistant',
+      'Shigella spp., fluoroquinolone-resistant',
+      'Enterococcus faecium, vancomycin-resistant',
+      'Staphylococcus aureus, methicillin-resistant',
+      'Non-typhoidal Salmonella, fluoroquinolone-resistant',
+      'Neisseria gonorrhoeae, third-gen cephalosporin- or fluoroquinolone-resistant',
+      'Pseudomonas aeruginosa, carbapenem-resistant',
+      'Streptococcus pneumoniae, macrolide-resistant',
+      'Haemophilus influenzae, ampicillin-resistant',
+      'Group A and Group B Streptococcus, macrolide-resistant',
+      'Candida auris and other fungal AMR pathogens',
+      { value: 'Other', label: 'Other', extraKey: 'g3_pathogens_other' }
+    ]),
+    
+    h3sub('G.3.2', 'AMR bioinformatics tools'),
+    checklist('g3_tools', [
+      'TheiaProk',
+      'Bactopia',
+      'NCBI AMRFinderPlus',
+      'abritAMR',
+      'CARD RGI',
+      'ResFinder',
+      'PointFinder',
+      'PlasmidFinder',
+      'VirulenceFinder',
+      'AMRPlusPlus (metagenomic AMR)',
+      'hAMRonization',
+      { value: 'Other', label: 'Other', extraKey: 'g3_tools_other' }
+    ]),
+    
+    h3sub('G.3.3', 'AMR workflow integration'),
+    ynBlock([
+      ['g3_concordance', 'Are WGS-derived AMR predictions compared with phenotypic AST for concordance?'],
+      ['g3_glass', 'Are AMR genomic results shared with national AMR surveillance (GLASS or equivalent)?'],
+      ['g3_onehealth', 'Is a One Health perspective used (human, animal, environmental isolates)?']
+    ]),
+    
+    sectionNotes('notes_section_g3')
+  ]));
+  
+  gBody.appendChild(buildModule('tb', 'G.4 Tuberculosis Sequencing',
+    'Complete this module because your laboratory performs targeted NGS (tNGS) or WGS for TB.', [
+    h3sub('G.4.1', 'Approach'),
+    checklist('g4_approach', [
+      'Targeted NGS (tNGS) directly from specimen (per WHO 2024 guidance)',
+      'Whole genome sequencing from cultured isolates',
+      'Both'
+    ]),
+    
+    h3sub('G.4.2', 'tNGS kit or assay in use'),
+    checklist('g4_kit', [
+      'Deeplex Myc-TB',
+      'AmPORE-TB (Oxford Nanopore)',
+      'GenoScreen Deeplex',
+      'In-house amplicon panel',
+      { value: 'Other', label: 'Other', extraKey: 'g4_kit_other' }
+    ]),
+    
+    h3sub('G.4.3', 'Analysis tools'),
+    checklist('g4_tools', [
+      'TheiaProk',
+      'Bactopia',
+      'TBProfiler',
+      'MTBseq',
+      'Mykrobe',
+      'CRyPTIC resources',
+      'Custom pipeline',
+      { value: 'Other', label: 'Other', extraKey: 'g4_tools_other' }
+    ]),
+    
+    h3sub('G.4.4', 'Reporting and integration'),
+    ynBlock([
+      ['g4_clinical', 'Are resistance results reported directly to the clinical team?'],
+      ['g4_ntp', 'Is the National TB Programme notified of results?']
+    ]),
+    textField('g4_tat', 'Typical turnaround time'),
+    
+    sectionNotes('notes_section_g4')
+  ]));
+  
+  gBody.appendChild(buildModule('hiv', 'G.5 HIV Drug Resistance Sequencing',
+    'Complete this module because your laboratory performs HIV drug resistance sequencing.', [
+    h3sub('G.5.1', 'Application'),
+    checklist('g5_app', [
+      'Pretreatment drug resistance (PDR) surveillance',
+      'Acquired drug resistance (ADR) surveillance',
+      'Clinical genotyping for individual patient management',
+      'Research'
+    ]),
+    
+    h3sub('G.5.2', 'Approach'),
+    checklist('g5_approach', [
+      'Sanger sequencing (pol gene)',
+      'NGS (pol gene)',
+      'NGS (near-full or full genome)',
+      'Point-of-care genotyping (e.g., Alere q)',
+      { value: 'Other', label: 'Other' }
+    ]),
+    
+    h3sub('G.5.3', 'Analysis tools / databases'),
+    checklist('g5_analysis', [
+      'LANL HIV Sequence Database tools (Los Alamos National Laboratory HIV resources)',
+      'Stanford HIVdb',
+      'REGAdb',
+      'Geno2pheno',
+      'HIVDB algorithm (local)',
+      { value: 'Other', label: 'Other', extraKey: 'g5_analysis_other' }
+    ]),
+    
+    sectionNotes('notes_section_g5')
+  ]));
+  
+  gBody.appendChild(buildModule('fungal', 'G.6 Fungal Genomics',
+    'Complete this module because your laboratory sequences fungal pathogens.', [
+    textField('g6_org', 'Organisms (Candida auris, Cryptococcus, Aspergillus, etc.)'),
+    
+    h3sub('G.6.1', 'Pipelines and analysis tools'),
+    checklist('g6_pipelines', [
+      'MycoSNP (CDC, original implementation)',
+      'MycoSNP-nf (Nextflow port)',
+      'TheiaEuk (Theiagen, Terra-based fungal pipeline)',
+      'CDC MycoCosm',
+      'FunGAP',
+      'MAKER',
+      'nf-core/funcscan',
+      'Custom pipeline',
+      { value: 'Other', label: 'Other', extraKey: 'g6_other' }
+    ]),
+    
+    ynBlock([
+      ['g6_ipc', 'Are results shared with infection prevention and control (IPC)?'],
+      ['g6_auris', 'For Candida auris, is clade assignment performed?']
+    ]),
+    
+    sectionNotes('notes_section_g6')
+  ]));
+  
+  gBody.appendChild(buildModule('mngs', 'G.7 Clinical / Public Health Metagenomics',
+    'Complete this module because your laboratory performs metagenomic sequencing.', [
+    h3sub('G.7.1', 'Application'),
+    checklist('g7_app', [
+      'Clinical metagenomics from human specimens',
+      'Environmental metagenomics (surfaces, air)',
+      'Food or feed metagenomics',
+      'Veterinary One Health surveillance'
+    ]),
+    
+    h3sub('G.7.2', 'Enrichment or depletion'),
+    checklist('g7_enrich', [
+      'Host depletion (saponin, DNase, etc.)',
+      'Targeted enrichment panels',
+      'Shotgun (no enrichment)',
+      'Adaptive sampling (Nanopore)'
+    ]),
+    
+    h3sub('G.7.3', 'Bioinformatics tools'),
+    checklist('g7_bioinfo', [
+      'TheiaMeta (Theiagen, Terra-based metagenomic pipeline)',
+      'Kraken2 / Bracken',
+      'MetaPhlAn',
+      'nf-core/mag',
+      'nf-core/taxprofiler',
+      'IDseq',
+      'CosmosID',
+      { value: 'Other', label: 'Other', extraKey: 'g7_bioinfo_other' }
+    ]),
+    
+    ynBlock([
+      ['g7_validated', 'Are metagenomics assays validated for clinical use?'],
+      ['g7_stewardship', 'Is an antimicrobial stewardship team involved in result interpretation?'],
+      ['g7_controls', 'Are negative controls routinely sequenced alongside samples?'],
+      ['g7_contamination', 'Is contamination explicitly considered in interpretation?']
+    ]),
+    
+    sectionNotes('notes_section_g7')
+  ]));
+  
+  gBody.appendChild(buildModule('wastewater', 'G.8 Wastewater Surveillance',
+    'Complete this module because your laboratory performs wastewater surveillance.', [
+    h3sub('G.8.1', 'Targets'),
+    checklist('g8_targets', [
+      'SARS-CoV-2',
+      'Influenza',
+      'Mpox',
+      'Polio',
+      'AMR genes',
+      { value: 'Other pathogens', label: 'Other pathogens', extraKey: 'g8_targets_other' }
+    ]),
+    
+    textField('g8_sites', 'Number of sites monitored'),
+    textField('g8_freq', 'Sampling frequency'),
+    ynRow('g8_coord', 'Is there formal coordination with wastewater utilities?'),
+    
+    h3sub('G.8.2', 'Sample processing'),
+    ynBlock([
+      ['g8_concentration', 'Is a documented concentration method used (PEG, ultrafiltration, etc.)?'],
+      ['g8_dpcr', 'Are dPCR or qPCR results integrated with sequencing?']
+    ]),
+    
+    h3sub('G.8.3', 'Sequencing approach'),
+    checklist('g8_approach', [
+      'Amplicon-based (ARTIC-style)',
+      'Hybrid capture',
+      'Shotgun metagenomics',
+      'Targeted amplicon panels (AMR, enteric, etc.)'
+    ]),
+    
+    ynBlock([
+      ['g8_integrated', 'Are wastewater results integrated with clinical surveillance reports?'],
+      ['g8_public', 'Are wastewater trends shared publicly or with decision-makers?']
+    ]),
+    
+    sectionNotes('notes_section_g8')
+  ]));
+  
+  gBody.appendChild(buildModule('other', 'G.9 Other Targeted Applications',
+    'Use this space to describe any other sequencing applications not covered above.', [
+    textArea('g9_desc', 'Description', { rows: 4 }),
+    
+    sectionNotes('notes_section_g9')
+  ]));
+  
+  container.appendChild(gSection);
+  
+  // Continue with remaining sections H through M...
+  // (I'll create simplified versions for the remaining sections to keep the response manageable)
+  
+  // Section H
+  container.appendChild(buildSection('H', 'Quality Management and EQA', [
+    h3sub('H.1', 'Accreditation status'),
+    checklist('h1_accreditation', [
+      'ISO 15189 accredited (full)',
+      'ISO 15189 in progress',
+      'ISO 17025',
+      'CLIA',
+      'Not accredited',
+      { value: 'National scheme', label: 'National scheme', extraKey: 'h1_national' }
+    ]),
+    
+    h3sub('H.2', 'Quality management for NGS'),
+    ynBlock([
+      ['h2_qms', 'Is there a written QMS specific to NGS?'],
+      ['h2_validation', 'Are NGS assays validated before reportable use?'],
+      ['h2_template', 'Is a validation template used?'],
+      ['h2_sops', 'Are NGS SOPs current and accessible?'],
+      ['h2_competency', 'Is there a documented competency assessment programme for NGS staff?'],
+      ['h2_deviation', 'Is there a process for documenting and resolving deviations?']
+    ]),
+    
+    h3sub('H.3', 'Run-level QC metrics'),
+    
+    h4minor('Illumina-specific metrics'),
+    checklist('h3_illumina', [
+      '% reads passing filter (PF)',
+      'Q30 score',
+      'Cluster density',
+      '% aligned to PhiX or expected control',
+      'Index hopping rate',
+      'Adapter content'
+    ]),
+    
+    h4minor('Oxford Nanopore-specific metrics'),
+    checklist('h3_nanopore', [
+      'Read N50',
+      'Pore activity / channel utilisation',
+      'Basecalling Q-score',
+      'Translocation rate',
+      '% reads passing minimum length and quality filter'
+    ]),
+    
+    h4minor('Other platforms (PacBio, Element, Ion Torrent, MGI, Singular)'),
+    checklist('h3_other_platforms', [
+      'HiFi Q-score (PacBio)',
+      'Polymerase reads (PacBio)',
+      'Q30 or platform-specific equivalent',
+      'Coverage uniformity',
+      { value: 'Other', label: 'Other (free text)', extraKey: 'h3_other_platforms_other' }
+    ]),
+    
+    h4minor('Cross-platform metrics'),
+    checklist('h3_cross_platform', [
+      'Read depth or coverage',
+      'Breadth of coverage at expected depth',
+      'Duplication rate',
+      'Adapter and contamination screening',
+      'Positive control performance',
+      'Negative (no-template) control performance',
+      'Internal control spike-in (if used)',
+      'Sample cross-contamination checks (VerifyBamID, index hopping)'
+    ]),
+    
+    h3sub('H.4', 'External Quality Assessment (EQA)'),
+    ynRow('h4_participate', 'Do you participate in external quality assessment schemes for NGS?'),
+    checklist('h4_schemes', [
+      'WHO EQAS (viral, TB, etc.)',
+      'RIVM',
+      'GenQA',
+      'Africa CDC quality networks',
+      'PulseNet proficiency testing',
+      { value: 'Other', label: 'Other', extraKey: 'h4_schemes_other' }
+    ]),
+    row(
+      textField('h4_last_date', 'Last EQA cycle date'),
+      textField('h4_last_outcome', 'Outcome', { placeholder: 'Satisfactory / Unsatisfactory' })
+    ),
+    
+    h3sub('H.5', 'Document control'),
+    ynBlock([
+      ['h5_version', 'Are SOPs version-controlled?'],
+      ['h5_archive', 'Are validation records archived?'],
+      ['h5_officer', 'Is there a designated document control officer?']
+    ]),
+    
+    sectionNotes('notes_section_h')
+  ]));
+  
+  // Section I
+  container.appendChild(buildSection('I', 'Data Management, Sharing and Governance', [
+    h3sub('I.1', 'Data storage'),
+    checklist('i1_storage', [
+      'On-premises server',
+      'Network-attached storage (NAS)',
+      'Cloud (AWS, GCP, Azure)',
+      'External hard drives',
+      { value: 'Other', label: 'Other', extraKey: 'i1_storage_other' }
+    ]),
+    row(
+      textField('i1_total_tb', 'Total storage capacity (TB)', { type: 'number', min: 0 }),
+      textField('i1_retention', 'Data retention policy', { placeholder: 'e.g., 5 years' })
+    ),
+    
+    h3sub('I.2', 'Backup and disaster recovery'),
+    ynBlock([
+      ['i2_backup', 'Is there offsite or cloud backup?'],
+      ['i2_dr', 'Is there a documented disaster recovery procedure?'],
+      ['i2_integrity', 'Are backups tested for integrity?']
+    ]),
+    
+    h3sub('I.3', 'Security'),
+    ynBlock([
+      ['i3_rbac', 'Is role-based access control (RBAC) implemented?'],
+      ['i3_mfa', 'Is two-factor authentication (2FA) required?'],
+      ['i3_incident', 'Has there been a cybersecurity incident in the last 24 months?']
+    ]),
+    
+    h3sub('I.4', 'Data sharing'),
+    checklist('i4_submissions', [
+      'GISAID',
+      'NCBI GenBank / SRA',
+      'European Nucleotide Archive (ENA)',
+      'Regional or national repository',
+      'Not currently sharing'
+    ]),
+    ynRow('i4_barriers_yn', 'Are there barriers to routine data sharing?'),
+    textArea('i4_barriers_desc', 'Describe barriers', { rows: 2 }),
+    
+    h3sub('I.5', 'Metadata standards'),
+    checklist('i5_schema', [
+      'Minimal metadata (sample ID, date, location)',
+      'MIxS or INSDC compliant',
+      'PHA4GE contextual data specification',
+      'Custom schema',
+      'No formal schema'
+    ]),
+    
+    h3sub('I.6', 'Ethical and legal frameworks'),
+    ynBlock([
+      ['i6_ethics', 'Is there an ethics approval pathway for genomic surveillance?'],
+      ['i6_consent', 'Are consent processes in place for sharing genomic data?'],
+      ['i6_deid', 'Is de-identification of data required before sharing?'],
+      ['i6_dta', 'Are data transfer agreements (DTAs) in place for international collaborations?']
+    ]),
+    
+    h3sub('I.7', 'National genomic surveillance strategy'),
+    ynBlock([
+      ['i7_strategy', 'Is there a national pathogen genomics strategy?'],
+      ['i7_named', 'Is there a named coordinating body or focal point?']
+    ]),
+    textField('i7_name', 'Name of coordinating entity'),
+    
+    sectionNotes('notes_section_i')
+  ]));
+  
+  // Section J
+  container.appendChild(buildSection('J', 'Workforce and Sustainability', [
+    h3sub('J.1', 'Current staffing'),
+    rosterTable('j1_roles', ['Role', 'Filled', 'Vacant', 'Planned', 'Notes'], [1, 2, 3]),
+    
+    h3sub('J.2', 'Training completed (last 24 months)'),
+    hint('Include only NGS-related training, attended by anyone in the laboratory regardless of role.'),
+    rosterTable('j2_training', ['Training topic', 'Provider', 'Who attended', '# staff trained', 'Completion rate']),
+    
+    h3sub('J.3', 'Training needs (self-identified)'),
+    rosterTable('j3_needs', ['Training need', 'Target audience', 'Priority (1-5)', 'Preferred format', 'Notes']),
+    
+    h3sub('J.4', 'Staff retention'),
+    row3(
+      textField('j4_left_12mo', 'Staff who left NGS roles in last 12 months', { type: 'number', min: 0 }),
+      textField('j4_left_24mo', 'Staff who left NGS roles in last 24 months', { type: 'number', min: 0 })
+    ),
+    ynRow('j4_tracked', 'Is staff turnover formally tracked?'),
+    textField('j4_reasons', 'Common reasons for leaving'),
+    
+    h3sub('J.5', 'Career pathways'),
+    ynBlock([
+      ['j5_ngs_path', 'Is there a defined career pathway for wet lab NGS staff?'],
+      ['j5_bi_path', 'Is there a defined career pathway for bioinformaticians?'],
+      ['j5_salary', 'Are salaries competitive with private sector or academia?']
+    ]),
+    
+    h3sub('J.6', 'Continuing education'),
+    ynBlock([
+      ['j6_protected', 'Is there protected time for continuing education?']
+    ]),
+    textField('j6_days', 'Days per year allocated for CE'),
+    ynRow('j6_online', 'Are staff able to access online training resources?'),
+    
+    h3sub('J.7', 'Teaching and mentorship capacity'),
+    ynBlock([
+      ['j7_echo', 'Has the lab delivered ECHO-style or train-the-trainer sessions?'],
+      ['j7_curricula', 'Do staff have experience developing training curricula?'],
+      ['j7_internal', 'Are there designated internal trainers or mentors?']
+    ]),
+    textArea('j7_topics', 'Topics your laboratory can teach to others', { rows: 2 }),
+    
+    h3sub('J.8', 'Academic and institutional partnerships'),
+    ynBlock([
+      ['j8_academic', 'Is there a formal partnership with a university or research institute?'],
+      ['j8_interns', 'Does the lab host graduate students or interns?'],
+      ['j8_intl', 'Are there international exchange or attachment opportunities?']
+    ]),
+    textField('j8_partners', 'Partner institutions'),
+    
+    h3sub('J.9', 'Mentorship'),
+    ynBlock([
+      ['j9_internal', 'Is there an internal mentorship programme?'],
+      ['j9_external', 'Do staff have access to external mentors?']
+    ]),
+    
+    sectionNotes('notes_section_j')
+  ]));
+  
+  // Section K
+  container.appendChild(buildSection('K', 'Surveillance Integration', [
+    h3sub('K.1', 'Integration with public health surveillance'),
+    ynBlock([
+      ['k1_reports', 'Do genomic results flow into routine surveillance reports?'],
+      ['k1_liaison', 'Is there a designated liaison between the lab and epidemiology teams?'],
+      ['k1_platform', 'Is there a shared platform or database for genomic + epi data?'],
+      ['k1_linkage', 'Are sequenced samples linked to a line list or case registry?']
+    ]),
+    
+    h3sub('K.2', 'Reporting timelines / Turnaround times'),
+    hint('Complete this section only if your laboratory has surveillance integration in place (genomic results flow into national or institutional surveillance reports). Otherwise leave blank or write N/A.'),
+    rosterTable('k2_times', ['Application', 'Receipt to seq', 'Seq to report', 'Target TAT']),
+    
+    h3sub('K.3', 'Audiences for genomic surveillance outputs'),
+    checklist('k3_audiences', [
+      'Laboratory leadership',
+      'Epidemiology / surveillance teams',
+      'Outbreak response coordinators',
+      'Ministry of Health senior leadership',
+      'Infection prevention and control (IPC)',
+      'Antimicrobial stewardship',
+      'WHO or regional networks',
+      'Public (via dashboards or reports)',
+      'Academic or research partners'
+    ]),
+    
+    h3sub('K.4', 'Impact on policy and response'),
+    ynRow('k4_policy', 'Has genomic surveillance informed policy or public health action in the last 12 months?'),
+    textArea('k4_example', 'Provide one example', { rows: 2 }),
+    ynRow('k4_outbreak', 'Has the lab participated in rapid outbreak response with genomics?'),
+    
+    h3sub('K.5', 'Participation in coordinating bodies'),
+    checklist('k5_committees', [
+      'National Technical Working Group',
+      'Outbreak response committee',
+      'Antimicrobial resistance steering committee',
+      'Biosafety or biosecurity committee',
+      'Laboratory network coordination group',
+      { value: 'Other', label: 'Other', extraKey: 'k5_other' }
+    ]),
+    
+    sectionNotes('notes_section_k')
+  ]));
+  
+  // Section L
+  container.appendChild(buildSection('L', 'Financial Sustainability', [
+    h3sub('L.1', 'Funding sources currently supporting sequencing'),
+    checklist('l1_sources', [
+      'Government or ministry core funding (in-country)',
+      'National research funding',
+      'External government funding (US State Department, US CDC, USAID, UK FCDO, Global Affairs Canada, etc.)',
+      'International organisations (WHO, FHI360, IOM, UNICEF, etc.)',
+      'Multilateral donor (Global Fund, World Bank, Gavi)',
+      'Foundation (Gates, Wellcome Trust, Rockefeller, etc.)',
+      'Industry partnership or sponsorship',
+      'Cost recovery from fee-for-service',
+      { value: 'Other', label: 'Other (specify)', extraKey: 'l1_other', extraPlaceholder: 'specify' }
+    ]),
+    textArea('l1_funding_notes', 'Funding source notes (optional): identify specific programmes, end dates, or amounts', { rows: 3 }),
+    
+    h3sub('L.2', 'Cost tracking'),
+    ynRow('l2_tracked', 'Is the cost per sample or per application tracked?'),
+    rosterTable('l2_costs', ['Application', 'Reagent cost/sample', 'Full cost/sample', 'Notes']),
+    
+    h3sub('L.3', 'Supply chain resilience'),
+    ynBlock([
+      ['l3_stockout', 'Have stockouts > 2 weeks occurred in the last 12 months?'],
+      ['l3_vendors', 'Are there at least two approved vendors for critical reagents?'],
+      ['l3_reorder', 'Are reorder triggers documented?']
+    ]),
+    textField('l3_buffer', 'Typical reagent buffer stock', { placeholder: 'e.g., 3 months' }),
+    
+    h3sub('L.4', 'Procurement pathway'),
+    checklist('l4_pathway', [
+      'Direct purchase by the laboratory',
+      'Central procurement via ministry or programme',
+      'Pooled procurement with other laboratories',
+      'Donor-supplied through project',
+      { value: 'Other', label: 'Other', extraKey: 'l4_other' }
+    ]),
+    textField('l4_time', 'Typical procurement timeline from request to receipt'),
+    
+    h3sub('L.5', 'Budget outlook'),
+    ynBlock([
+      ['l5_current_fy', 'Is NGS funding secured for the current fiscal year?'],
+      ['l5_next_fy', 'Is NGS funding anticipated for the next fiscal year?'],
+      ['l5_multi', 'Is there a multi-year funding commitment?']
+    ]),
+    textArea('l5_risks', 'Key financial risks or sustainability concerns', { rows: 3 }),
+    
+    sectionNotes('notes_section_l')
+  ]));
+  
+  // Section M
+  container.appendChild(buildSection('M', 'Engagement Preferences and Priorities', [
+    h3sub('M.1', 'Top three priorities for APHL engagement'),
+    hint('Your answers here weigh more than any checkbox above. Be specific.'),
+    textArea('m1_priority_1', 'Priority 1', { rows: 2 }),
+    textArea('m1_priority_2', 'Priority 2', { rows: 2 }),
+    textArea('m1_priority_3', 'Priority 3', { rows: 2 }),
+    
+    h3sub('M.2', 'Engagement modalities you can support'),
+    checklist('m2_modalities', [
+      'In-person workshop at our laboratory',
+      'In-person workshop at a regional venue',
+      'Virtual synchronous training',
+      'Asynchronous self-paced with mentor check-ins',
+      'One-on-one remote mentoring',
+      'Short-term staff exchange or attachment',
+      'Bench-side technical assistance during live project',
+      'Train-the-trainer so our staff can cascade'
+    ]),
+    
+    h3sub('M.3', 'Timing'),
+    row(
+      textField('m3_start', 'Preferred start window', { placeholder: 'e.g., Q2 2026' }),
+      textField('m3_deadlines', 'Hard deadlines', { placeholder: 'e.g., project end date' })
+    ),
+    ynBlock([
+      ['m3_assessment', 'Should this assessment precede detailed planning?'],
+      ['m3_unsuitable', 'Are there periods when engagement would be unsuitable?']
+    ]),
+    textField('m3_unsuitable_when', 'When unsuitable', { placeholder: 'e.g., June-August (rainy season field work)' }),
+    
+    h3sub('M.4', 'Overlapping commitments'),
+    hint('Other genomics projects, training commitments, or TA engagements currently active or planned.'),
+    textArea('m4_overlap', 'Describe overlaps and coordination needs', { rows: 3 }),
+    
+    h3sub('M.5', 'Post-engagement sustainability'),
+    ynBlock([
+      ['m5_plan', 'Is there a plan for sustaining capacity after donor support ends?'],
+      ['m5_commits', 'Are there government commitments to continue funding?']
+    ]),
+    textArea('m5_sustained', 'How will gains be sustained?', { rows: 3 }),
+    
+    h3sub('M.6', 'Open notes'),
+    hint('Anything else we should know: technical gaps, political sensitivities, partnerships that worked or did not work, preferences.'),
+    textArea('m6_notes', 'Additional notes', { rows: 5 }),
+    
+    sectionNotes('notes_section_m')
+  ]));
+  
+  // Contributors
+  container.appendChild(buildSection('Contributors', 'Contributors', [
+    hint('List all people who contributed to completing this assessment.'),
+    rosterTable('contributors', ['Name', 'Role', 'Sections completed', 'Email']),
+    
+    sectionNotes('notes_section_contributors')
+  ]));
+}
+
+function buildSection(num, title, content) {
+  const section = el('div', { class: 'section', id: `sec-${num.toLowerCase()}` });
+  section.appendChild(buildSectionHeader(num, title));
+  const body = el('div', { class: 'section-body' });
+  content.forEach(c => { if (c) body.appendChild(c); });
+  section.appendChild(body);
+  return section;
+}
+
+function buildSectionHeader(num, title) {
+  const head = el('div', { class: 'section-head' });
+  head.appendChild(el('div', { class: 'section-num' }, num));
+  head.appendChild(el('h2', {}, title));
+  return head;
+}
+
+function buildModule(moduleKey, title, description, content) {
+  const module = el('div', { 
+    class: 'module', 
+    'data-module': moduleKey,
+    id: `mod-${moduleKey}` 
+  });
+  
+  const head = el('div', { class: 'module-head' });
+  head.appendChild(el('h3', {}, title));
+  head.appendChild(el('span', { class: 'module-badge' }, 'Module'));
+  module.appendChild(head);
+  
+  const body = el('div', { class: 'module-body' });
+  if (description) {
+    body.appendChild(el('div', { class: 'module-note' }, description));
+  }
+  content.forEach(c => { if (c) body.appendChild(c); });
+  module.appendChild(body);
+  
+  return module;
+}
+
+// ═══════════════════════════════════════════════════════════
+// MODULE VISIBILITY LOGIC
+// ═══════════════════════════════════════════════════════════
+
+function updateModuleVisibility() {
+  const activeModules = new Set();
+  
+  // Check Section A.4 status grid
+  document.querySelectorAll('[data-statusgrid="a4_apps"]:checked').forEach(input => {
+    if (ACTIVE_STATUSES.includes(input.value)) {
+      const appLabel = input.dataset.label;
+      const app = APPS.find(a => a.label === appLabel);
+      if (app) {
+        app.modules.forEach(m => activeModules.add(m));
+      }
+    }
+  });
+  
+  // Always show "other" module
+  activeModules.add('other');
+  
+  // Show/hide modules
+  document.querySelectorAll('.module').forEach(mod => {
+    const key = mod.dataset.module;
+    if (activeModules.has(key)) {
+      mod.classList.remove('inactive');
+    } else {
+      mod.classList.add('inactive');
+    }
+  });
+  
+  // Show/hide banner
+  const banner = document.getElementById('inactive-banner');
+  if (activeModules.size === 1) {
+    banner.style.display = 'block';
+  } else {
+    banner.style.display = 'none';
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// UI ACTIONS
+// ═══════════════════════════════════════════════════════════
+
+function expandAll() {
+  // Not applicable in this single-page design
+}
+
+function collapseAll() {
+  // Not applicable in this single-page design
+}
+
+function clearAll() {
+  if (!confirm('This will clear all responses. Are you sure?')) return;
+  
+  document.querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="date"], textarea, select').forEach(el => {
+    el.value = '';
+  });
+  
+  document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(el => {
+    el.checked = false;
+  });
+  
+  formState = {};
+  localStorage.removeItem('ngs_full_baseline_v1');
+  showToast();
+}
+
+function openReview() {
+  generateReviewText();
+  document.getElementById('review-panel').classList.add('show');
+}
+
+function closeReview() {
+  document.getElementById('review-panel').classList.remove('show');
+}
+
+function generateReviewText() {
+  const lines = [];
+  
+  lines.push('═══════════════════════════════════════════════════════════');
+  lines.push('PATHOGEN GENOMICS CAPACITY ASSESSMENT — FULL BASELINE');
+  lines.push('Association of Public Health Laboratories (APHL) Global Health');
+  lines.push('═══════════════════════════════════════════════════════════');
+  lines.push('');
+  
+  const labName = document.querySelector('[data-field="a1_lab_name"]')?.value || '[Not provided]';
+  const country = document.querySelector('[data-field="a1_country"]')?.value || '[Not provided]';
+  const date = document.querySelector('[data-field="a1_date"]')?.value || '[Not provided]';
+  
+  lines.push(`Laboratory: ${labName}`);
+  lines.push(`Country: ${country}`);
+  lines.push(`Date: ${date}`);
+  lines.push('');
+  lines.push('═══════════════════════════════════════════════════════════');
+  lines.push('');
+  
+  // Collect all filled fields
+  const allSections = document.querySelectorAll('.section');
+  allSections.forEach(section => {
+    const sectionTitle = section.querySelector('h2')?.textContent;
+    if (sectionTitle) {
+      lines.push('');
+      lines.push(`## ${sectionTitle}`);
+      lines.push('');
+      
+      // Get all filled fields in this section
+      section.querySelectorAll('[data-field]').forEach(field => {
+        if (field.value.trim()) {
+          const label = field.closest('.field')?.querySelector('label')?.textContent || field.dataset.field;
+          lines.push(`${label}: ${field.value}`);
+        }
+      });
+      
+      // Get checked checkboxes
+      section.querySelectorAll('[data-group]').forEach(group => {
+        const checked = Array.from(group.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+        if (checked.length > 0) {
+          const groupLabel = group.closest('.field, .section-body')?.querySelector('h3, h4')?.textContent || 'Selected';
+          lines.push(`${groupLabel}: ${checked.join(', ')}`);
+        }
+      });
+      
+      // Get checked radios
+      const radioNames = new Set();
+      section.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+        if (!radioNames.has(radio.name)) {
+          radioNames.add(radio.name);
+          const question = radio.closest('.yn-row')?.querySelector('.question')?.textContent || radio.name;
+          lines.push(`${question}: ${radio.value}`);
+        }
+      });
+    }
+  });
+  
+  document.getElementById('review-text').value = lines.join('\n');
+}
+
+function copyReview(btn) {
+  const textarea = document.getElementById('review-text');
+  textarea.select();
+  document.execCommand('copy');
+  const orig = btn.textContent;
+  btn.textContent = 'Copied!';
+  setTimeout(() => { btn.textContent = orig; }, 1500);
+}
+
+function downloadReview() {
+  const text = document.getElementById('review-text').value;
+  const blob = new Blob([text], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'NGS_Assessment_Full_Baseline.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+
+function initApp() {
+  buildSections();
+  loadState();
+  updateModuleVisibility();
+  
+  // Auto-save on input
+  document.addEventListener('input', saveState);
+  document.addEventListener('change', (e) => {
+    if (e.target.dataset.statusgrid === 'a4_apps') {
+      updateModuleVisibility();
+    }
+    saveState();
+  });
+}
+
+// Works whether DOMContentLoaded has already fired (e.g. inside a bundle)
+// or not (normal page load).
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
+</script>
+
+<script>
+// Auto-print after fonts and dynamic sections are ready
+window.addEventListener('load', function() {
+  document.fonts.ready.then(function() {
+    setTimeout(function() {
+      window.print();
+    }, 1200);
+  });
+});
+</script>
+
+</body>
+</html>
