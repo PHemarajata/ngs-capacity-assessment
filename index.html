@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NGS Capacity Assessment — APHL Global Health</title>
+<title>Pathogen Genomic Surveillance Capacity Assessment | APHL Global Health</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,6 +28,10 @@
   .topbar img { height: 38px; width: auto; display: block; }
   .topbar .brand { font-size: 14px; letter-spacing: 0.04em; opacity: 0.92; }
   .wrap { max-width: 920px; margin: 0 auto; padding: 56px 40px 80px; }
+  @media (max-width: 720px) {
+    .topbar { padding: 18px 16px; flex-wrap: wrap; }
+    .wrap { padding: 40px 16px 64px; }
+  }
   .eyebrow {
     font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
     color: #006E79; font-weight: 700; margin-bottom: 14px;
@@ -54,7 +58,7 @@
   a.card:hover { border-left-color: #B42E34; }
   a.card .role {
     font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: #888; font-weight: 600; margin-bottom: 6px;
+    color: #6b6b6b; font-weight: 600; margin-bottom: 6px;
   }
   a.card .title {
     font-size: 18px; font-weight: 600; color: #006E79;
@@ -62,6 +66,11 @@
   }
   a.card .desc { font-size: 14px; color: #555; }
   a.card.primary { border-left-color: #B42E34; }
+  .note { font-size: 14px; color: #555; margin-top: 18px; max-width: 720px; }
+  .note + .note { margin-top: 8px; }
+  .older { list-style: none; font-size: 14px; }
+  .older li { padding: 8px 0; border-bottom: 1px solid #E2E9EC; }
+  .older a { color: #006E79; }
   .ipad-note {
     background: #fff; border-left: 4px solid #EBAB21;
     padding: 18px 22px; margin-top: 28px; font-size: 14px;
@@ -69,7 +78,7 @@
   .ipad-note strong { color: #006E79; }
   .meta {
     margin-top: 56px; padding-top: 24px; border-top: 1px solid #E2E9EC;
-    font-size: 12px; color: #888;
+    font-size: 12px; color: #6b6b6b;
   }
   .meta a { color: #006E79; }
 </style>
@@ -78,49 +87,55 @@
 
 <header class="topbar">
   <img src="assets/logo-aphl.png" alt="APHL">
-  <div class="brand">Global Health · NGS Capacity Assessment</div>
+  <div class="brand">Global Health · Pathogen Genomic Surveillance Capacity Assessment</div>
 </header>
 
 <main class="wrap">
   <div class="eyebrow">APHL Global Health Program</div>
-  <h1>Pathogen Genomics Capacity Assessment</h1>
-  <p class="lede">A self-administered assessment of laboratory capacity for next-generation sequencing and bioinformatics, used by APHL partner laboratories. Open one of the forms below in your browser — your answers save locally as you type.</p>
+  <h1>Pathogen Genomic Surveillance Capacity Assessment</h1>
+  <p class="lede">Three assessment forms for public health laboratory capacity for pathogen genomic surveillance. Each form is a single file that opens in any modern browser, saves answers on the device as you type and works offline once you save a copy.</p>
 
   <section>
-    <h2>Forms</h2>
+    <h2>Current forms</h2>
     <div class="grid">
-      <a class="card primary" href="NGS%20Assessment%20Full%20Baseline%20-%20APHL%20v6.html">
-        <div class="role">Recommended</div>
-        <div class="title">Full Baseline Assessment (v6)</div>
-        <div class="desc">Complete in-depth assessment. Best for first-time evaluation or annual review.</div>
+      <a class="card" href="instruments/NGS_Assessment_Short_Form_-_APHL_v4.1__standalone_.html">
+        <div class="role">Before the visit</div>
+        <div class="title">Short Form (v4.1)</div>
+        <div class="desc">Sent to each laboratory two to three weeks before the visit. One senior respondent completes it in about 30 minutes, and the answers define the scope of the visit.</div>
       </a>
-      <a class="card" href="NGS%20Assessment%20Short%20Form%20-%20APHL%20v2%20%28standalone%29.html">
-        <div class="role">Quick check</div>
-        <div class="title">Short Form (v2)</div>
-        <div class="desc">Condensed version for periodic check-ins and progress tracking.</div>
+      <a class="card primary" href="instruments/NGS_Assessment_Full_Baseline_-_APHL_v8.1__standalone_.html">
+        <div class="role">On site, for each laboratory</div>
+        <div class="title">Full Baseline (v8.1)</div>
+        <div class="desc">Completed on site with laboratory technical and quality staff, over one to two days for each laboratory.</div>
       </a>
-      <a class="card" href="NGS%20Assessment%20Full%20Baseline%20-%20APHL%20v6-print.html">
-        <div class="role">Print</div>
-        <div class="title">Full Baseline — print layout</div>
-        <div class="desc">Optimized for paper. Use File &rsaquo; Print to save as PDF.</div>
-      </a>
-      <a class="card" href="NGS%20Assessment%20Full%20Baseline%20-%20APHL%20v6%20%28standalone%29.html">
-        <div class="role">Offline</div>
-        <div class="title">Full Baseline — single-file (offline)</div>
-        <div class="desc">All assets inlined. Download once, fill out without internet.</div>
+      <a class="card" href="instruments/NGS_Assessment_Leadership_Annex_-_APHL_v1.1__standalone_.html">
+        <div class="role">On site, once for each site</div>
+        <div class="title">Enabling Environment Annex (v1.1)</div>
+        <div class="desc">Completed with institutional leadership, and with national authorities where possible. Institutional and national questions are asked once for each site, not for every laboratory.</div>
       </a>
     </div>
+    <p class="note">Current builds: Short Form v4.1 and Full Baseline v8.1, build 2026-11-12a. Enabling Environment Annex v1.1, build 2026-11-16a. Each form shows its build in the page footer.</p>
+    <p class="note">To fill a form without internet, open it here first and save it to the device (in a desktop browser, File &rsaquo; Save Page As).</p>
   </section>
 
   <section>
     <h2>Documentation</h2>
     <div class="grid">
-      <a class="card" href="Short%20Form%20User%20Guide.html">
-        <div class="role">Guide</div>
-        <div class="title">Short Form User Guide</div>
-        <div class="desc">How to interpret questions and submit completed responses.</div>
+      <a class="card" href="https://github.com/PHemarajata/pathogen-genomics-capacity-assessment">
+        <div class="role">Source repository</div>
+        <div class="title">Overview, release notes and version history</div>
+        <div class="desc">How the three forms fit together, what changed between versions and printable covers for each form.</div>
       </a>
     </div>
+  </section>
+
+  <section>
+    <h2>Earlier versions</h2>
+    <p class="note" style="margin: 0 0 12px">Kept so that links already shared keep working. Use the current forms above for new assessments.</p>
+    <ul class="older">
+      <li><a href="NGS%20Assessment%20Full%20Baseline%20-%20APHL%20v6.html">Full Baseline v6</a>, also as a <a href="NGS%20Assessment%20Full%20Baseline%20-%20APHL%20v6-print.html">print layout</a> and a <a href="NGS%20Assessment%20Full%20Baseline%20-%20APHL%20v6%20%28standalone%29.html">single-file version</a></li>
+      <li><a href="NGS%20Assessment%20Short%20Form%20-%20APHL%20v2%20%28standalone%29.html">Short Form v2</a> and its <a href="Short%20Form%20User%20Guide.html">user guide</a></li>
+    </ul>
   </section>
 
   <div class="ipad-note">

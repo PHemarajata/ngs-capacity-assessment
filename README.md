@@ -1,40 +1,42 @@
-# NGS Capacity Assessment — APHL Global Health
+# Pathogen Genomic Surveillance Capacity Assessment | APHL Global Health
 
-A self-administered assessment of laboratory capacity for next-generation sequencing and bioinformatics, used by APHL partner laboratories.
+This repository hosts the public web page for the assessment forms: https://phemarajata.github.io/ngs-capacity-assessment/
 
-The assessments are static HTML — no backend, no build step. Answers save to the browser's localStorage on the device they're filled out on.
+The forms assess public health laboratory capacity for pathogen genomic surveillance. Each is a single, self-contained HTML file with no backend and no build step. Answers save to the browser's localStorage on the device they're filled out on.
 
-## Contents
+The source of record, with the overview, release notes, version history and printable covers, is [PHemarajata/pathogen-genomics-capacity-assessment](https://github.com/PHemarajata/pathogen-genomics-capacity-assessment). New releases are made there first and copied here.
+
+## Current forms
+
+| File | Form | Build |
+|------|------|-------|
+| `instruments/NGS_Assessment_Short_Form_-_APHL_v4.1__standalone_.html` | Short Form v4.1, sent to each laboratory before the visit | 2026-11-12a |
+| `instruments/NGS_Assessment_Full_Baseline_-_APHL_v8.1__standalone_.html` | Full Baseline v8.1, completed on site for each laboratory | 2026-11-12a |
+| `instruments/NGS_Assessment_Leadership_Annex_-_APHL_v1.1__standalone_.html` | Enabling Environment Annex v1.1, completed once for each site | 2026-11-16a |
+
+## Other files
 
 | File | Purpose |
 |------|---------|
 | `index.html` | Landing page linking to the forms |
-| `NGS Assessment Full Baseline - APHL v6.html` | **Latest full assessment** (recommended) |
-| `NGS Assessment Full Baseline - APHL v6-print.html` | Print-optimized layout of the same form |
-| `NGS Assessment Full Baseline - APHL v6 (standalone).html` | Single-file offline version of the full assessment (all assets inlined) |
-| `NGS Assessment Short Form - APHL v2 (standalone).html` | **Latest short form** — condensed periodic check-in |
-| `Short Form User Guide.html` | How-to guide for the short form |
-| `tweaks-panel.jsx` | Helper component referenced by the user guide |
-| `assets/` | Logo and lab photography used by the non-standalone files |
+| `NGS Assessment Full Baseline - APHL v6.html`, `-print.html`, `(standalone).html` | Full Baseline v6, kept so that links already shared keep working |
+| `NGS Assessment Short Form - APHL v2 (standalone).html` | Short Form v2, kept for the same reason |
+| `Short Form User Guide.html`, `tweaks-panel.jsx` | User guide for Short Form v2 and the helper it loads |
+| `assets/` | Logo and photography used by the landing page and the v6 files |
 
-## Hosting with GitHub Pages
+## Hosting
 
-1. Push this folder to a new repository (drag-drop the folder contents into GitHub's web "Add file → Upload files" works fine).
-2. In the repo: **Settings → Pages**.
-3. Source: **Deploy from a branch**, branch `main`, folder `/ (root)`.
-4. Save. After a minute your forms are live at `https://<user>.github.io/<repo>/`.
-
-The Pages URL handles iPad correctly — open it in Safari, the form runs, answers save. To keep it one tap away on iPad: Share → Add to Home Screen.
+GitHub Pages serves this repository from branch `main`, folder `/ (root)`.
 
 ## Local use
 
-Open `index.html` in any modern browser. The standalone `(standalone).html` files work even with no internet — every asset (fonts, images, JS, CSS) is inlined.
+Open `index.html` in any modern browser. The forms in `instruments/` work with no internet, because every asset is inlined.
 
 ## Notes for iPad users
 
-- **Don't** open AirDropped HTML files from Files / Quick Look — that previewer disables JavaScript and the form won't load.
+- **Don't** open AirDropped HTML files from Files or Quick Look. That previewer disables JavaScript and the form won't load.
 - **Do** open the hosted URL in Safari, or use a browser app like Documents by Readdle that runs scripts on local files.
-- Answers are stored per-browser, per-origin. Switching devices or browsers starts a fresh form. Use the form's built-in export / save before closing the tab if you need a transferable record.
+- Answers are stored per browser and per site. Switching devices or browsers starts a fresh form. Use the form's export before closing the tab if you need a record you can move.
 
 ## Contact
 
